@@ -1,14 +1,23 @@
-{% extends '../base.html' %}
-{% load django_bootstrap5 %}
-{% load bootstrap5 %}
+{% extends '../base.html' %} {% load django_bootstrap5 %} {% load bootstrap5 %}
 {% load static %}
- <!--Custom CSS-->
- <link rel="stylesheet" href="{% static 'store/css/about.css' %}">
+<!--Custom CSS-->
+<link rel="stylesheet" href="{% static 'store/css/about.css' %}" />
 <!--Fontawesome-->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css"
+  integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A=="
+  crossorigin="anonymous"
+  referrerpolicy="no-referrer"
+/>
+
 <!-- Bootstrap CSS -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+<link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+  integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2"
+  crossorigin="anonymous"
+/>
 
 <!--
     {% block title %}Home{% endblock %}
@@ -16,7 +25,348 @@
 -->
 {% block content %}
 
-<h1 style="color:#000">About Us</h1>
+<!--Main Body Section-->
+<div class="container mt-5 mb-5">
+  <div class="card" style="border: none">
+    <div class="row g-0">
+      <div class="col-md-3">
+        <div class="mt-5 pt-5 thumbnail_images">
+          <ul id="thumbnail">
+            <li>
+              <img
+                onclick="changeImage(this)"
+                src="https://res.cloudinary.com/dyiuol5sx/image/upload/v1662233082/Zenith/thumb1_hgiynw.png"
+                width="70"
+              />
+            </li>
+            <li>
+              <img
+                onclick="changeImage(this)"
+                src="https://res.cloudinary.com/dyiuol5sx/image/upload/v1662233076/Zenith/thumb2_iq2ry8.png"
+                width="70"
+              />
+            </li>
+            <li>
+              <img
+                onclick="changeImage(this)"
+                src="https://res.cloudinary.com/dyiuol5sx/image/upload/v1662233072/Zenith/thumb3_fuchwu.png"
+                width="70"
+              />
+            </li>
+            <li>
+              <img
+                onclick="changeImage(this)"
+                src="https://res.cloudinary.com/dyiuol5sx/image/upload/v1662233069/Zenith/thumb4_lfmahr.png"
+                width="70"
+              />
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-md-6 border-end">
+        <div class="d-flex flex-column justify-content-center">
+          <div class="main_image">
+            <img
+              src="https://res.cloudinary.com/dyiuol5sx/image/upload/v1662233087/Zenith/prodDemo_mo1lse.png"
+              id="main_product_image"
+              width="350"
+            />
+          </div>
+        </div>
+      </div>
+      <div
+        class="col-md-3"
+        style="
+          background-color: #fff;
+          padding: 1em;
+          box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+        "
+      >
+        <div class="p-3 right-side" style="background-color: #fff">
+          <div
+            class="d-flex justify-content-between align-items-center"
+            style="background-color: #fff"
+          >
+            <h3 style="background-color: #fff">Zenith</h3>
+            <span class="heart"
+              ><i class="fas fa-heart" style="color: #ff0000"></i
+            ></span>
+          </div>
+          <div class="mt-2 pr-3 content" style="background-color: #fff">
+            <p style="background-color: #fff">
+              Special Zenith Empire Collection
+            </p>
+          </div>
+          <h3 style="background-color: #fff">$40.99</h3>
+          <div
+            class="ratings d-flex flex-row align-items-center"
+            style="background-color: #fff"
+          >
+            <div class="d-flex flex-row" style="background-color: #fff">
+              <i
+                class="fas fa-star"
+                style="color: #ff0000; background-color: #fff"
+              ></i>
+              <i
+                class="fas fa-star"
+                style="color: #ff0000; background-color: #fff"
+              ></i>
+              <i
+                class="fas fa-star"
+                style="color: #ff0000; background-color: #fff"
+              ></i>
+              <i
+                class="fas fa-star"
+                style="color: #ff0000; background-color: #fff"
+              ></i>
+              <i
+                class="far fa-star"
+                style="color: #ff0000; background-color: #fff"
+              ></i>
+            </div>
+            <span style="background-color: #fff">441 reviews</span>
+          </div>
+          <div class="mt-5" style="background-color: #fff">
+            <span class="fw-bold" style="background-color: #fff">Color</span>
+            <div class="colors" style="background-color: #fff">
+              <ul id="marker" style="background-color: #fff">
+                <li id="marker-1"></li>
+                <li id="marker-2"></li>
+                <li id="marker-3"></li>
+                <li id="marker-4"></li>
+                <li id="marker-5"></li>
+              </ul>
+            </div>
+          </div>
+          <div class="buttons d-flex flex-row mt-5 gap-3">
+            <button class="btn btn-outline-dark">Buy Now</button>
+            <button class="btn btn-dark">Add to Basket</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
+<!--Specs-->
+<div class="container mt-5 mb-5 pt-5">
+  <div class="card" style="border: none">
+    <div class="row g-0">
+      <div class="col-md-6 pt-3">
+        <img
+          src="https://res.cloudinary.com/dyiuol5sx/image/upload/v1662233087/Zenith/prodDemo_mo1lse.png"
+          width="400"
+        />
+      </div>
+      <div class="col-md-6 pt-3">
+        <h1>Specifications</h1>
+        <ul style="list-style: none">
+          <li class="pt-2"><span style="font-weight: bold">Brand</span> Zen</li>
+          <li class="pt-2"><span style="font-weight: bold">Brand</span> Zen</li>
+          <li class="pt-2"><span style="font-weight: bold">Brand</span> Zen</li>
+          <li class="pt-2"><span style="font-weight: bold">Brand</span> Zen</li>
+          <li class="pt-2"><span style="font-weight: bold">Brand</span> Zen</li>
+          <li class="pt-2"><span style="font-weight: bold">Brand</span> Zen</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--Product Dets-->
+<div class="container mt-5 mb-5 pt-5">
+  <div class="card" style="border: none; background-color: #f3eee7">
+    <h1 class="text-center">Product Name</h1>
+    <h6 class="text-center" style="background-color: #f3eee7">
+      Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
+      dolore eu fugiat nulla pariatur.
+    </h6>
+    <div class="row g-0">
+      <div class="col-md-6 pt-3">
+        <img
+          src="https://res.cloudinary.com/dyiuol5sx/image/upload/v1662233106/Zenith/prod2_q5yuba.png"
+          width="400"
+        />
+      </div>
+      <div class="col-md-6 pt-3">
+        <img
+          src="https://res.cloudinary.com/dyiuol5sx/image/upload/v1662233103/Zenith/prod3_nfudsk.png"
+          width="400"
+        />
+      </div>
+    </div>
+  </div>
+</div>
+<!--More Details-->
+<div class="container mt-5 mb-5 pt-5">
+  <div class="card" style="border: none">
+    <div class="row g-0">
+      <div class="col-md-3 pt-3"><!--Dummy--></div>
+
+      <div class="col-md-6 pt-3">
+        <img
+          src="https://res.cloudinary.com/dyiuol5sx/image/upload/v1661760711/Zenith/img8_azyevn.png"
+          width="500"
+        />
+      </div>
+
+      <div class="col-md-3 pt-3"><!--Dummy--></div>
+    </div>
+  </div>
+</div>
+<!--More from the Seller-->
+
+<div class="container mt-5 mb-5 pt-5">
+  <div class="card" style="border: none; background-color: #f3eee7">
+    <h3 class="text-center">More from this collection</h3>
+
+    <div class="row">
+      <div
+        class="col-lg-3 col-sm-6 d-flex flex-column align-items-center justify-content-center product-item my-3"
+      >
+        <div class="product">
+          <div class="tag bg-red">sale</div>
+
+          <img
+            src="https://res.cloudinary.com/dyiuol5sx/image/upload/v1662233213/Zenith/col1_mtbnyv.png"
+            alt=""
+          />
+          <ul
+            class="d-flex align-items-center justify-content-center list-unstyled icons"
+          >
+            <!-- <li class="icon"><span class="fas fa-expand-arrows-alt"></span></li> -->
+            <li class="icon mx-3">
+              <span class="far fa-heart" style="background-color: #fff"></span>
+            </li>
+            <li class="icon">
+              <span
+                class="fas fa-shopping-bag"
+                style="background-color: #fff"
+              ></span>
+            </li>
+          </ul>
+        </div>
+        <div class="title pt-4 pb-1">Zenith Edition Watches</div>
+        <div class="d-flex align-content-center justify-content-center">
+          <span class="fas fa-star"></span>
+          <span class="fas fa-star"></span>
+          <span class="fas fa-star"></span>
+          <span class="fas fa-star"></span>
+          <span class="fas fa-star"></span>
+        </div>
+        <div class="price">$ 60.0</div>
+      </div>
+      <!--Prod 2-->
+
+      <div
+        class="col-lg-3 col-sm-6 d-flex flex-column align-items-center justify-content-center product-item my-3"
+      >
+        <div class="product">
+          <div class="tag bg-red">sale</div>
+
+          <img
+            src="https://res.cloudinary.com/dyiuol5sx/image/upload/v1662233221/Zenith/col3_pvsrjh.png"
+            alt=""
+          />
+          <ul
+            class="d-flex align-items-center justify-content-center list-unstyled icons"
+          >
+            <!-- <li class="icon"><span class="fas fa-expand-arrows-alt"></span></li> -->
+            <li class="icon mx-3">
+              <span class="far fa-heart" style="background-color: #fff"></span>
+            </li>
+            <li class="icon">
+              <span
+                class="fas fa-shopping-bag"
+                style="background-color: #fff"
+              ></span>
+            </li>
+          </ul>
+        </div>
+        <div class="title pt-4 pb-1">Zenith Edition Watches</div>
+        <div class="d-flex align-content-center justify-content-center">
+          <span class="fas fa-star"></span>
+          <span class="fas fa-star"></span>
+          <span class="fas fa-star"></span>
+          <span class="fas fa-star"></span>
+          <span class="fas fa-star"></span>
+        </div>
+        <div class="price">$ 60.0</div>
+      </div>
+      <!--Prod 3-->
+      <div
+        class="col-lg-3 col-sm-6 d-flex flex-column align-items-center justify-content-center product-item my-3"
+      >
+        <div class="product">
+          <div class="tag bg-red">sale</div>
+
+          <img
+            src="https://res.cloudinary.com/dyiuol5sx/image/upload/v1661760708/Zenith/img2_dmhdhu.png"
+            alt=""
+          />
+          <ul
+            class="d-flex align-items-center justify-content-center list-unstyled icons"
+          >
+            <!-- <li class="icon"><span class="fas fa-expand-arrows-alt"></span></li> -->
+            <li class="icon mx-3">
+              <span class="far fa-heart" style="background-color: #fff"></span>
+            </li>
+            <li class="icon">
+              <span
+                class="fas fa-shopping-bag"
+                style="background-color: #fff"
+              ></span>
+            </li>
+          </ul>
+        </div>
+        <div class="title pt-4 pb-1">Zenith Edition Watches</div>
+        <div class="d-flex align-content-center justify-content-center">
+          <span class="fas fa-star"></span>
+          <span class="fas fa-star"></span>
+          <span class="fas fa-star"></span>
+          <span class="fas fa-star"></span>
+          <span class="fas fa-star"></span>
+        </div>
+        <div class="price">$ 60.0</div>
+      </div>
+      <!--Prod 4-->
+      <div
+        class="col-lg-3 col-sm-6 d-flex flex-column align-items-center justify-content-center product-item my-3"
+      >
+        <div class="product">
+          <div class="tag bg-red">sale</div>
+
+          <img
+            src="https://res.cloudinary.com/dyiuol5sx/image/upload/v1662233217/Zenith/col2_mltciv.png"
+            alt=""
+          />
+          <ul
+            class="d-flex align-items-center justify-content-center list-unstyled icons"
+          >
+            <!-- <li class="icon"><span class="fas fa-expand-arrows-alt"></span></li> -->
+            <li class="icon mx-3">
+              <span class="far fa-heart" style="background-color: #fff"></span>
+            </li>
+            <li class="icon">
+              <span
+                class="fas fa-shopping-bag"
+                style="background-color: #fff"
+              ></span>
+            </li>
+          </ul>
+        </div>
+        <div class="title pt-4 pb-1">Zenith Edition Watches</div>
+        <div class="d-flex align-content-center justify-content-center">
+          <span class="fas fa-star"></span>
+          <span class="fas fa-star"></span>
+          <span class="fas fa-star"></span>
+          <span class="fas fa-star"></span>
+          <span class="fas fa-star"></span>
+        </div>
+        <div class="price">$ 60.0</div>
+      </div>
+    </div>
+  </div>
+</div>
 
 {% endblock %}
