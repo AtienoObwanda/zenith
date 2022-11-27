@@ -33,6 +33,7 @@ INSTALLED_APPS = [
     'widget_tweaks',
     'django_bootstrap5',
     # 'crispy_forms',
+    'Store',
 
 ]
 
