@@ -1,15 +1,15 @@
 *{
-    background-color: #F3EEE7;
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
+  /* background-color: #F3EEE7; */
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
 }
 body {
-    margin: 0;
-    background-color: #F3EEE7;
-  
+  margin: 0;
+  background-color: #F3EEE7;
 
-  }
+
+}
 
   
   .topnav {
@@ -56,6 +56,7 @@ body {
     font-size: 35px;
     /* line-height: 86px; */
     color: #000000;
+    text-align: center;
   }
   .zen{
     font-family: 'Inknut Antiqua';
