@@ -70,6 +70,11 @@
     letter-spacing: 0.5px;
 }
 
+.price{
+    text-align: center;
+
+}
+
 .container .product-item .fa-star {
     font-size: 0.65rem;
     color: #FF0000;
@@ -80,6 +85,7 @@
     margin-bottom: 10px;
     font-weight: 600;
 }
+
 
 .fw-800 {
     font-weight: 800;
