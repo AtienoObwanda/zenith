@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from .models import Watch, category
 
 def home(request):
@@ -9,3 +9,8 @@ def home(request):
 def about(request):
     
     return render(request, 'Store/about.html')
+
+
+def watch_detail(request, slug):
+    watch = get_object_or_404(Watch, slug=slug, in_stock = True)
+    return render(request, 'Store/watch.html', {'watch': watch})
