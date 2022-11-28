@@ -14,3 +14,7 @@ def about(request):
 def watch_detail(request, slug):
     watch = get_object_or_404(Watch, slug=slug, in_stock = True)
     return render(request, 'Store/watch.html', {'watch': watch})
+
+
+def cart_page(request):
+    return render(request, 'Store/cart.html')

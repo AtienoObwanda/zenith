@@ -1,5 +1,5 @@
 .payment-info {
-    background: blue;
+    background: #FF0000;
     padding: 10px;
     border-radius: 6px;
     color: #fff;
@@ -57,7 +57,7 @@
   
   label.radio input:checked + span {
     border-color: #fff;
-    background-color: blue;
+    background-color: #FF0000;
     color: #fff;
   }
   
@@ -83,7 +83,7 @@
   }
   
   .line {
-    border-bottom: 1px solid rgb(102,102,221);
+    border-bottom: 1px solid #fff;;
   }
   
   .information span {
