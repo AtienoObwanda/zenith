@@ -22,10 +22,18 @@
             <div class="collapse navbar-collapse" id="myNav">
                 <div class="navbar-nav ms-auto">
                     <a class="nav-link active" aria-current="page" href="#">All</a>
-                    <a class="nav-link" href="#">His</a>
-                    <a class="nav-link" href="#">Hers</a>
-                    <a class="nav-link" href="#">Best Seller</a>
-                    <a class="nav-link" href="#">Latest</a>
+                   <!--
+                    {% for c in categories %}
+                        <li {% if category.slug == c.slug %}class="selected" {% endif %}>
+                            <a class="nav-link" href="{{ c.get_absolute_url }}">{{ c.name|title }}</a>
+                        </li>
+                    {% endfor %}
+                   -->
+                    {% for category in categories %}
+                    <a class="nav-link" href="#">{{category.name}}</a>
+                    {% endfor %}
+
+                  
                 </div>
             </div>
         </div>

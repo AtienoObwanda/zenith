@@ -1,9 +1,10 @@
 from django.shortcuts import render
-from .models import Watch
+from .models import Watch, category
 
 def home(request):
     watches = Watch.objects.all()
-    return render(request, 'Store/home.html', {'watches' : watches})
+    categories = category.objects.all()
+    return render(request, 'Store/home.html', {'watches' : watches, 'categories' : categories})
 
 def about(request):
     
