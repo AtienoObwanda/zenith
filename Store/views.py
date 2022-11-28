@@ -1,5 +1,5 @@
 from django.shortcuts import render, get_object_or_404
-from .models import Watch, category
+from .models import Watch, category, brand
 
 def home(request):
     watches = Watch.objects.all()
@@ -18,3 +18,17 @@ def watch_detail(request, slug):
 
 def cart_page(request):
     return render(request, 'Store/cart.html')
+
+
+def category_details(request, category_slug):
+    category = get_object_or_404(category, slug = category_slug)
+    watches = Watch.objects.filter(category = category)
+    return render(request, 'Store/category.html',{'category': category, 'watches': watches})
+
+
+def brand_details(request, brand_slug):
+    brand = get_object_or_404(brand, slug=brand_slug)
+    watches = Watch.objects.filter(category = category)
+    return render(request, 'Store/brand.html', {'brand': brand, 'watches': watches})
+
+
