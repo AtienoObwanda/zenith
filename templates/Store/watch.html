@@ -21,28 +21,28 @@
             <li>
               <img
                 onclick="changeImage(this)"
-                src="https://res.cloudinary.com/dyiuol5sx/image/upload/v1662233082/Zenith/thumb1_hgiynw.png"
+                src="{{ watch.meta_image1.url }}" alt="{{watch.title}}"
                 width="70"
               />
             </li>
             <li>
               <img
                 onclick="changeImage(this)"
-                src="https://res.cloudinary.com/dyiuol5sx/image/upload/v1662233076/Zenith/thumb2_iq2ry8.png"
+                src="{{ watch.meta_image2.url }}" alt="{{watch.title}}"
                 width="70"
               />
             </li>
             <li>
               <img
                 onclick="changeImage(this)"
-                src="https://res.cloudinary.com/dyiuol5sx/image/upload/v1662233072/Zenith/thumb3_fuchwu.png"
+                src="{{ watch.meta_image3.url }}" alt="{{watch.title}}"
                 width="70"
               />
             </li>
             <li>
               <img
                 onclick="changeImage(this)"
-                src="https://res.cloudinary.com/dyiuol5sx/image/upload/v1662233069/Zenith/thumb4_lfmahr.png"
+                src="{{ watch.model_image.url }}" alt="{{watch.title}}"
                 width="70"
               />
             </li>
@@ -53,10 +53,11 @@
         <div class="d-flex flex-column justify-content-center">
           <div class="main_image">
             <img
-              src="https://res.cloudinary.com/dyiuol5sx/image/upload/v1662233087/Zenith/prodDemo_mo1lse.png"
+              src="{{ watch.main_image.url }}" alt="{{watch.title}}"
               id="main_product_image"
               width="350"
             />
+
           </div>
         </div>
       </div>
@@ -73,7 +74,7 @@
             class="d-flex justify-content-between align-items-center"
             style="background-color: #fff"
           >
-            <h3 style="background-color: #fff">Zenith</h3>
+            <h3 style="background-color: #fff">{{watch.title}} | {{watch.category}}</h3>
             <span class="heart"
               ><i class="fas fa-heart" style="color: #ff0000"></i
             ></span>
@@ -83,7 +84,7 @@
               Special Zenith Empire Collection
             </p>
           </div>
-          <h3 style="background-color: #fff">$40.99</h3>
+          <h3 style="background-color: #fff">Ksh {{ watch.price }}</h3>
           <div
             class="ratings d-flex flex-row align-items-center"
             style="background-color: #fff"
@@ -140,19 +141,24 @@
     <div class="row g-0">
       <div class="col-md-6 pt-3">
         <img
-          src="https://res.cloudinary.com/dyiuol5sx/image/upload/v1662233087/Zenith/prodDemo_mo1lse.png"
+          src="{{watch.meta_image1.url}}"
           width="400"
         />
       </div>
       <div class="col-md-6 pt-3">
-        <h1>Specifications</h1>
+        <h5 class="pt-4" style="font-weight: bold">Specifications</h5>
         <ul style="list-style: none">
-          <li class="pt-2"><span style="font-weight: bold">Brand</span> Zen</li>
-          <li class="pt-2"><span style="font-weight: bold">Brand</span> Zen</li>
-          <li class="pt-2"><span style="font-weight: bold">Brand</span> Zen</li>
-          <li class="pt-2"><span style="font-weight: bold">Brand</span> Zen</li>
-          <li class="pt-2"><span style="font-weight: bold">Brand</span> Zen</li>
-          <li class="pt-2"><span style="font-weight: bold">Brand</span> Zen</li>
+          <li class="pt-3"><span style="font-weight: bold">Color:</span> {{watch.color}}</li>
+          <li class="pt-3"><span style="font-weight: bold">Brand:</span> {{watch.brand}}</li>
+          <li class="pt-3"><span style="font-weight: bold">Watch Type</span> {{watch.watchType}}</li>
+        </ul>
+      </br>
+        <h5 style="font-weight: bold">Key Features</h5>
+        <ul style="list-style: none">
+          <li class="pt-3"><span style="font-weight: bold">Clasp Type</span> {{watch.clasp}}</li>
+          <li class="pt-3"><span style="font-weight: bold">Watch Strap</span> {{watch.watchStrap}}</li>
+          <li class="pt-3"><span style="font-weight: bold">Core Material</span> {{watch.coreMaterial}}</li>
+          <li class="pt-3"><span style="font-weight: bold">Main Material</span>{{watch.mainMaterial}}</li>
         </ul>
       </div>
     </div>
@@ -162,21 +168,20 @@
 <!--Product Dets-->
 <div class="container mt-5 mb-5 pt-5">
   <div class="card" style="border: none; background-color: #f3eee7">
-    <h1 class="text-center">Product Name</h1>
+    <h3 class="text-center" style="font-weight: bold" >{{ watch.title }}</h3>
     <h6 class="text-center" style="background-color: #f3eee7">
-      Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
-      dolore eu fugiat nulla pariatur.
+      {{watch.description}}
     </h6>
     <div class="row g-0">
       <div class="col-md-6 pt-3">
         <img
-          src="https://res.cloudinary.com/dyiuol5sx/image/upload/v1662233106/Zenith/prod2_q5yuba.png"
+          src="{{watch.meta_image2.url}}"
           width="400"
         />
       </div>
       <div class="col-md-6 pt-3">
         <img
-          src="https://res.cloudinary.com/dyiuol5sx/image/upload/v1662233103/Zenith/prod3_nfudsk.png"
+          src="{{watch.meta_image3.url}}"
           width="400"
         />
       </div>
@@ -191,7 +196,7 @@
 
       <div class="col-md-6 pt-3">
         <img
-          src="https://res.cloudinary.com/dyiuol5sx/image/upload/v1661760711/Zenith/img8_azyevn.png"
+          src="{{ watch.model_image.url }}"
           width="500"
         />
       </div>
@@ -204,7 +209,7 @@
 
 <div class="container mt-5 mb-5 pt-5">
   <div class="card" style="border: none; background-color: #f3eee7">
-    <h3 class="text-center">More from this collection</h3>
+    <h3 class="text-center">More from {{watch.brand}}</h3>
 
     <div class="row">
       <div
