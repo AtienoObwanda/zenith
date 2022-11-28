@@ -107,6 +107,7 @@ class Watch(models.Model):
     is_new = models.BooleanField(default = False)
     in_stock = models.BooleanField(default = True)
     is_active = models.BooleanField(default = True)
+    slug = models.SlugField(max_length = 255)
     color = models.ForeignKey(color, related_name='watch', on_delete=models.CASCADE)
     # reviews
     # vendor = models.ForeignKey(User, on_delete=models.CASCADE, related_name='product_vendor')

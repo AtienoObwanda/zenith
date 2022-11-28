@@ -47,4 +47,4 @@ class WatchAdmin(admin.ModelAdmin):
     list_display = ['title', 'brand', 'color', 'price', 'slug',
             'in_stock','on_sale', 'is_new', 'is_active', 'created',
             'updated']
-    prepopulated_fields = {'slug' : ('name',)}
+    prepopulated_fields = {'slug' : ('title',)}
