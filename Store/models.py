@@ -125,6 +125,10 @@ class Watch(models.Model):
         verbose_name_plural = 'watches'
         ordering = ('-created', )
 
+    def get_absolute_url(self):
+        return reverse("Store:watch_detail", args=[self.slug])
+    
+
     def __str__(self):
         return self.title
 
