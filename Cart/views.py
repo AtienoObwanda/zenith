@@ -17,6 +17,7 @@ def cart_add(request):
         watch = get_object_or_404(Watch, id=watch_id)
 
         cart.add(watch=watch, qty=watch_qty)
+        
         cartqty = cart.__len__()
 
         response = JsonResponse({'qty' : cartqty})
