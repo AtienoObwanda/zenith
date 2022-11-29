@@ -34,14 +34,25 @@ class Cart():
         self.save()
 
 
-    # def __iter__(self):
-    #     """
-    #     Collects the watch_id values from the session data then queries the database and
-    #     returns the watches
+    def __iter__(self):
+        """
+        Collects the watch_id values from the session data then queries the database and
+        returns the watches
 
-    #     """
-    #     watch_ids = self.cart.keys()
-    #     watches = Watch.watch
+        """
+        watch_ids = self.cart.keys()
+
+        watches = Watch.watch.filter(id__in=watch_ids)
+
+        cart = self.cart.copy()
+
+        for watch in watches:
+            cart[str(watch.id)]['watch'] = watch
+
+        for item in cart.values():
+            item['price'] = Decimal(item['price'])
+            item['total_price'] = item['price'] * item['qty']
+            yield item
 
 
     def __len__(self):
