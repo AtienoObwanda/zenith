@@ -77,10 +77,32 @@
         <div class="price">Ksh. {{watch.price}}</div>
     </div>
 </a>
-
-
-        {% endfor %}
-    </div>
+{% endfor %}
 </div>
+</div>
+
+<!--Script-->
+<script>
+    $(document).on('click', '#add-button', function(e){
+        e.preventDefault();
+        $.ajax({
+            type: 'POST',
+            url:'{% "Cart.cart_add" %}',
+            data:{
+                watchid: $('#add-button').val(),
+                watchqty: $(1).text(),
+                csrfmiddlewaretoken:"{{csrf_token}}",
+                action: 'post'
+            },
+            success: function(json){
+                console.log(json)
+                document.getElementById("cart-qty").innerHTML = json.qty
+            },
+            error: function(xhr, errmsg, err){}
+        });
+
+    });
+
+</script>
 
 {% endblock %}
