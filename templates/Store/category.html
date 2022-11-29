@@ -1,1 +1,84 @@
-Category
+{% extends '../base.html' %}
+{% load django_bootstrap5 %}
+{% load bootstrap5 %}
+{% load static %}
+<!--
+    {% block title %}Home{% endblock %}
+
+-->
+{% block content %}
+<h1 class="text-center mt-3 mb-3 wtchs"> Watches</h1>
+<div class="container mt-5 mb-2">
+
+<div class="container">
+    <nav class="navbar navbar-expand-md navbar-light">
+        <div class="container-fluid p-0">
+            <a class="navbar-brand fw-100" href="#"><span
+                    class="border-red pe-2">Sort</span> by:</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#myNav"
+                aria-controls="myNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="fas fa-bars"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="myNav">
+                <div class="navbar-nav ms-auto">
+                    <a class="nav-link active" aria-current="page" href="#">All</a>
+                   <!--
+                    {% for c in categories %}
+                        <li {% if category.slug == c.slug %}class="selected" {% endif %}>
+                            <a class="nav-link" href="{{ c.get_absolute_url }}">{{ c.name|title }}</a>
+                        </li>
+                    {% endfor %}
+                   -->
+                    {% for category in categories %}
+                    <a class="nav-link" href="{{ category.get_absolute_url }}">{{category.name}}</a>
+                    {% endfor %}
+
+                  
+                </div>
+            </div>
+        </div>
+    </nav>
+    <div class="row">
+    {% for watch in watches %}
+        
+     
+        <div
+        class="col-lg-3 col-sm-6 d-flex flex-column align-items-center justify-content-center product-item my-3">
+        <div class="product">
+        {% if watch.on_sale %}
+          <div class="tag bg-red">sale</div>
+        {% endif %}
+        {% if watch.in_stock %}
+        {% else %}
+          <div class="tag bg-black">out of stock</div>
+        {% endif %}
+        {% if watch.is_new %}
+        <div class="tag bg-green">new</div>
+        {% endif %}
+        <a href="{{ watch.get_absolute_url }}" style="text-decoration:none; color: inherit;">
+            <img src="{{ watch.main_image.url }}" alt="{{watch.title}}">
+            <ul class="d-flex align-items-center justify-content-center list-unstyled icons">
+                <!-- <li class="icon"><span class="fas fa-expand-arrows-alt"></span></li> -->
+                <li class="icon mx-3"><span class="far fa-heart" style="background-color: #fff;"></span></li>
+                <li class="icon"><span class="fas fa-shopping-cart" style="background-color: #fff;"></span></li>
+            </ul>
+        </div>
+        <div class="title pt-4 pb-1" style="text-align:center">{{ watch.title }}</div>
+    
+        <div class="d-flex align-content-center justify-content-center">
+            <span class="fas fa-star"></span>
+            <span class="fas fa-star"></span>
+            <span class="fas fa-star"></span>
+            <span class="fas fa-star"></span>
+            <span class="fas fa-star"></span>
+        </div>
+        <div class="price">Ksh. {{watch.price}}</div>
+    </div>
+</a>
+
+
+        {% endfor %}
+    </div>
+</div>
+
+{% endblock %}
