@@ -33,4 +33,43 @@ class Cart():
 
         self.save()
 
-        
+
+    # def __iter__(self):
+    #     """
+    #     Collects the watch_id values from the session data then queries the database and
+    #     returns the watches
+
+    #     """
+    #     watch_ids = self.cart.keys()
+    #     watches = Watch.watch
+
+
+    def __len__(self):
+        '''
+        Gets cart data and returns the length of the items
+        '''
+        return sum(item['qty'] for item in self.cart.values())
+
+    def save(self):
+        '''
+        Save cart data to the session data
+        '''
+        self.session.modified = True
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
