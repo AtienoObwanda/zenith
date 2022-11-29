@@ -29,7 +29,7 @@ class Cart():
         if watch_id not in self.cart:
             self.cart[watch_id]['qty'] = qty
         else:
-            self.basket[watch_id] = {'price': str(watch.price), 'qty': qty}
+            self.cart[watch_id] = {'price': str(watch.price), 'qty': qty}
 
         self.save()
 
