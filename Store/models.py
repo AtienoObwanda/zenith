@@ -3,6 +3,11 @@ from django.db import models
 from django.urls import reverse
 
 
+class WatchManager(models.Manager):
+    def get_queryset(self):
+        return super(WatchManager, self).get_queryset().filter(is_active=True)
+
+
 class category(models.Model):
     name = models.CharField(max_length=255, db_index=True)
     slug = models.SlugField(max_length=255, unique=True)
@@ -126,6 +131,8 @@ class Watch(models.Model):
     mainMaterial = models.ForeignKey(mainMaterial, related_name='watch', on_delete=models.CASCADE)
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
+    objects = models.Manager()
+    watch = WatchManager()
 
     class Meta:
         verbose_name_plural = 'watches'
