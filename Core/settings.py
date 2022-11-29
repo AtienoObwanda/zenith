@@ -34,6 +34,7 @@ INSTALLED_APPS = [
     'django_bootstrap5',
     # 'crispy_forms',
     'Store',
+    'Cart',
 
 ]
 
