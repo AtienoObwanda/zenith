@@ -21,14 +21,14 @@ def cart_page(request):
 
 
 def category_detail(request, category_slug):
-    category = get_object_or_404(category, slug = category_slug)
-    watches = Watch.objects.filter(category = category)
-    return render(request, 'Store/category.html',{'category': category, 'watches': watches})
+    Category = get_object_or_404(category, slug=category_slug)
+    watches = Watch.objects.filter(category=Category)
+    return render(request, 'Store/category.html',{'Category': Category, 'watches': watches})
 
 
-def brand_detail(request, brand_slug):
-    brand = get_object_or_404(brand, slug=brand_slug)
-    watches = Watch.objects.filter(category = category)
+def brand_detail(request, slug):
+    Brand = get_object_or_404(brand, slug=slug)
+    watches = Watch.objects.filter(Brand = Brand)
     return render(request, 'Store/brand.html', {'brand': brand, 'watches': watches})
 
 
