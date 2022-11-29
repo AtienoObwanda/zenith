@@ -6,10 +6,11 @@
 
 <div class="container mt-5 p-3 rounded cart">
   <div class="row no-gutters">
+   
+    
 
     <div class="col-md-8">
-      {% for item in cart %}
-      {% with watch=item.watch %}
+    
       <div class="product-details mr-2">
         <div class="d-flex flex-row align-items-center">
           <i class="fa fa-long-arrow-left" style="color: #FF0000;"></i
@@ -26,90 +27,34 @@
             </div>
           </div>
         </div>
+    {% for item in cart %}
+    {% with watch=item.watch %}
         <div
           class="d-flex justify-content-between align-items-center mt-3 p-2 items rounded"
-        >
+          data-index="{{watch.id}}"
+         >
           <div class="d-flex flex-row">
             <img
               class="rounded"
-              src="https://i.imgur.com/QRwjbm5.jpg"
-              width="40"
-            />
-            <div class="ml-2">
-              <span class="font-weight-bold d-block">Iphone 11 pro</span
-              ><span class="spec">256GB, Navy Blue</span>
-            </div>
-          </div>
-          <div class="d-flex flex-row align-items-center">
-            <span class="d-block">2</span
-            ><span class="d-block ml-5 font-weight-bold">$900</span
-            ><i class="fa fa-trash-o ml-3 text-black-50"></i>
-          </div>
-        </div>
-        <div
-          class="d-flex justify-content-between align-items-center mt-3 p-2 items rounded"
-        >
-          <div class="d-flex flex-row">
-            <img
-              class="rounded"
-              src="https://i.imgur.com/GQnIUfs.jpg"
-              width="40"
-            />
-            <div class="ml-2">
-              <span class="font-weight-bold d-block">One pro 7T</span
-              ><span class="spec">256GB, Navy Blue</span>
-            </div>
-          </div>
-          <div class="d-flex flex-row align-items-center">
-            <span class="d-block">2</span
-            ><span class="d-block ml-5 font-weight-bold">$900</span
-            ><i class="fa fa-trash-o ml-3 text-black-50"></i>
-          </div>
-        </div>
-        <div
-          class="d-flex justify-content-between align-items-center mt-3 p-2 items rounded"
-        >
-          <div class="d-flex flex-row">
-            <img
-              class="rounded"
-              src="https://i.imgur.com/o2fKskJ.jpg"
-              width="40"
-            />
-            <div class="ml-2">
-              <span class="font-weight-bold d-block">Google pixel 4 XL</span
-              ><span class="spec">256GB, Axe black</span>
-            </div>
-          </div>
-          <div class="d-flex flex-row align-items-center">
-            <span class="d-block">1</span
-            ><span class="d-block ml-5 font-weight-bold">$800</span
-            ><i class="fa fa-trash-o ml-3 text-black-50"></i>
-          </div>
-        </div>
-        <div
-          class="d-flex justify-content-between align-items-center mt-3 p-2 items rounded"
-        >
-          <div class="d-flex flex-row">
-            <img
-              class="rounded"
-              src="https://i.imgur.com/Tja5H1c.jpg"
+              src="{{ watch.main_image.url }}"
               width="40"
             />
             <div class="ml-2">
               <span class="font-weight-bold d-block"
-                >Samsung galaxy Note 10&nbsp;</span
-              ><span class="spec">256GB, Navy Blue</span>
+                >{{watch.title}}&nbsp;</span
+              ><span class="spec">{{watch.brand}}</span>
             </div>
           </div>
           <div class="d-flex flex-row align-items-center">
-            <span class="d-block">1</span
-            ><span class="d-block ml-5 font-weight-bold">$999</span
+            <span class="d-block">{{item.qty}}</span
+            ><span class="d-block ml-5 font-weight-bold">Ksh {{watch.price}}</span
             ><i class="fa fa-trash-o ml-3 text-black-50"></i>
           </div>
         </div>
+        {% endwith %} 
+        {% endfor %}
       </div>
-      {% endwith %} 
-    {% endfor %}
+    
     </div>
     
     <div class="col-md-4">

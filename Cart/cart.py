@@ -61,6 +61,29 @@ class Cart():
         '''
         return sum(item['qty'] for item in self.cart.values())
 
+    def get_total_price(self):
+        return sum(Decimal(item['price']) * item['qty'] for item in self.basket.values())
+
+
+    def update(self, product, qty):
+        """
+        Update values in session data
+        """
+        product_id = str(product)
+        if product_id in self.basket:
+            self.basket[product_id]['qty'] = qty
+            self.save()
+
+
+    def delete(self, product):
+        """
+        Delete products from session data
+        """
+        product_id = str(product)
+        if product_id in self.basket:
+            del self.basket[product_id]
+            self.save()
+
     def save(self):
         '''
         Save cart data to the session data
