@@ -26,7 +26,7 @@ class Cart():
         #     self.cart[watch_id] = {'price' : str(watch.price), 'qty': int(qty)}
         # self.session.modified = True
 
-        if watch_id not in self.cart:
+        if watch_id in self.cart:
             self.cart[watch_id]['qty'] = qty
         else:
             self.cart[watch_id] = {'price': str(watch.price), 'qty': qty}
