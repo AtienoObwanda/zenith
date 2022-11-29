@@ -17,9 +17,6 @@ def watch_detail(request, slug):
     return render(request, 'Store/watch.html', {'watch': watch})
 
 
-def cart_page(request):
-    return render(request, 'Store/cart.html')
-
 
 def category_detail(request, category_slug):
     categories = category.objects.all()
