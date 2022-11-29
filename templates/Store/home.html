@@ -60,7 +60,9 @@
             <ul class="d-flex align-items-center justify-content-center list-unstyled icons">
                 <!-- <li class="icon"><span class="fas fa-expand-arrows-alt"></span></li> -->
                 <li class="icon mx-3"><span class="far fa-heart" style="background-color: #fff;"></span></li>
-                <li class="icon"><span class="fas fa-shopping-cart" style="background-color: #fff;"></span></li>
+                <a type="button" role="button" id="add-button" value="{{watch.id}}" style="text-decoration:none; color: inherit;">
+                    <li class="icon"><span class="fas fa-shopping-cart" style="background-color: #fff;"></span></li>
+                </a>
             </ul>
         </div>
         <div class="title pt-4 pb-1" style="text-align:center">{{ watch.title }}</div>
