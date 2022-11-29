@@ -61,11 +61,28 @@ class Cart():
         '''
         return sum(item['qty'] for item in self.cart.values())
 
+    # def get_total_price(self):
+    #     return sum(Decimal(item['price']) * item['qty'] for item in self.cart.values())
+
+
+
     def get_total_price(self):
-        return sum(Decimal(item['price']) * item['qty'] for item in self.cart.values())
+
+        subtotal = sum(Decimal(item['price']) * item['qty'] for item in self.cart.values())
+
+        if subtotal == 0:
+            shipping = Decimal(0.00)
+        else:
+            shipping = Decimal(700.00)
+
+        total = subtotal + Decimal(shipping)
+        return total
 
     def get_subtotal_price(self):
         return sum(Decimal(item['price']) * item['qty'] for item in self.cart.values())
+
+
+
 
     def update(self, watch, qty):
         """
@@ -85,6 +102,11 @@ class Cart():
         if watch_id in self.cart:
             del self.cart[watch_id]
             self.save()
+
+    # def clear(self):
+    #     # Remove cart from session
+    #     del self.session[settings.CART_SESSION_ID]
+    #     self.save()
 
     def save(self):
         '''
