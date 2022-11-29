@@ -22,6 +22,15 @@ class Cart():
         '''
         watch_id = str(watch.id)
 
+        # if watch_id not in self.cart:
+        #     self.cart[watch_id] = {'price' : str(watch.price), 'qty': int(qty)}
+        # self.session.modified = True
+
         if watch_id not in self.cart:
-            self.cart[watch_id] = {'price' : str(watch.price), 'qty': int(qty)}
-        self.session.modified = True
+            self.cart[watch_id]['qty'] = qty
+        else:
+            self.basket[watch_id] = {'price': str(watch.price), 'qty': qty}
+
+        self.save()
+
+        
