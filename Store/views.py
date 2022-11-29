@@ -13,6 +13,7 @@ def about(request):
 
 def watch_detail(request, slug):
     watch = get_object_or_404(Watch, slug=slug, in_stock = True)
+    brands = Watch.objects.filter(brand = watch.brand)
     return render(request, 'Store/watch.html', {'watch': watch})
 
 
@@ -27,9 +28,11 @@ def category_detail(request, category_slug):
     return render(request, 'Store/category.html',{'Category': Category, 'watches': watches, 'categories' : categories})
 
 
-def brand_detail(request, slug):
-    Brand = get_object_or_404(brand, slug=slug)
-    watches = Watch.objects.filter(Brand = Brand)
-    return render(request, 'Store/brand.html', {'brand': brand, 'watches': watches})
+def brand_detail(request, brand_slug):
+    categories = category.objects.all()
+    Brand = get_object_or_404(brand, slug=brand_slug)
+    watches = Watch.objects.filter(brand = Brand)
+    # categories = category.objects.filter(brand = Brand)
+    return render(request, 'Store/brand.html', {'brand': brand, 'watches': watches,'categories' : categories})
 
 
