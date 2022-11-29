@@ -62,26 +62,28 @@ class Cart():
         return sum(item['qty'] for item in self.cart.values())
 
     def get_total_price(self):
-        return sum(Decimal(item['price']) * item['qty'] for item in self.basket.values())
+        return sum(Decimal(item['price']) * item['qty'] for item in self.cart.values())
 
+    def get_subtotal_price(self):
+        return sum(Decimal(item['price']) * item['qty'] for item in self.cart.values())
 
-    def update(self, product, qty):
+    def update(self, watch, qty):
         """
         Update values in session data
         """
-        product_id = str(product)
-        if product_id in self.basket:
-            self.basket[product_id]['qty'] = qty
+        watch_id = str(watch)
+        if watch_id in self.cart:
+            self.cart[watch_id]['qty'] = qty
             self.save()
 
 
-    def delete(self, product):
+    def delete(self, watch):
         """
-        Delete products from session data
+        Delete watches from session data
         """
-        product_id = str(product)
-        if product_id in self.basket:
-            del self.basket[product_id]
+        watch_id = str(watch)
+        if watch_id in self.cart:
+            del self.cart[watch_id]
             self.save()
 
     def save(self):
