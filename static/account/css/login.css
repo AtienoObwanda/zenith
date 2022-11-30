@@ -1,19 +1,17 @@
-/* body{
-    background-color: rgb(93, 28, 139);
-} */
 
 input{
     border: none;
+    /* border: bottom 1px #ff0000 !important;  */
     outline: none;
 }
-.container{
-    border-radius: 15px;
+.loginContainer{
+    border-radius: 15px !important;
 }
 @media(min-width:992px){
-    /* img{
+   .loginContainer img{
         width:500px;
         height: 500px;
-    } */
+    }
     #circle{
         border: 10px solid#ff0000;
         border-radius: 50%;
@@ -23,14 +21,14 @@ input{
         left: 290px;
         top: -25px;
     }
-    .container{
-        background-image: linear-gradient(to bottom,rgb(255, 255, 255) 80%,rgb(242, 242, 253),rgb(164, 164, 235));
+    .loginContainer{
+        background-image: linear-gradient(to bottom,rgb(255, 255, 255) 80%,#ff000012,#ff000012)!important;
     }
 }
 @media(max-width:991px){
-    /* img{
+   .loginContainer img{
         display: none;
-    } */
+    }
     #circle{
         border: 10px solid #ff0000;
         border-radius: 50%;
@@ -40,14 +38,14 @@ input{
         left: 100px;
         top: -25px;
     }
-    .container{
-        background-image: linear-gradient(to bottom,rgb(255, 255, 255) 80%,rgb(242, 242, 253),rgb(164, 164, 235));
+    .loginContainer{
+        background-image: linear-gradient(to bottom,#ffffff 80%,#ff000012,#ff000012)!important;
     }
 }
 @media(max-width:768px){
-    /* img{
+    .loginContainer img{
         display: none;
-    } */
+    }
     #circle{
         border: 10px solid #ff0000;
         border-radius: 50%;
@@ -59,10 +57,10 @@ input{
     }
 }
 @media(max-width:567px){
-  /* img{
+  .loginContainer img{
       display: none;
-  } */
-  .container{
+  }
+  .loginContainer{
       margin-left: 0px;
       margin-top: 30px;
   }

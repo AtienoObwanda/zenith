@@ -4,6 +4,10 @@ from django.http import HttpResponse, JsonResponse
 from Store.models import Watch
 from .cart import Cart
 
+# def dum(request):
+
+#     return render(request, 'Cart/dummy.html')
+
 
 def cart_summary(request):
     cart = Cart(request)
