@@ -24,7 +24,8 @@
 .homeContainer .product-item .product .icons .icon {
     width: 40px;
     height: 40px;
-    background-color: #fff;
+    color: black!important;
+    background-color: #fff!important;
     border-radius: 50%;
     display: flex;
     justify-content: center;
@@ -36,7 +37,7 @@
 
 .homeContainer .product-item .product .icons .icon:hover {
     background-color: #fff;
-    color: #FF0000;
+    color: #FF0000!important;
 }
 
 .homeContainer .product-item .product .icons .icon:nth-last-of-type(3) {
