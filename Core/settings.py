@@ -5,20 +5,15 @@ import cloudinary.api
 # import dj_database_url
 import os
 
-# Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 
-# Quick-start development settings - unsuitable for production
 
-# SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'django-insecure-i5v#@#3v@=mku9267fq%m39_zp_c6lqeqsq5a4l3=^zb5b%7c@'
 
-# SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
-
+ALLOWED_HOSTS = ['yourdomain.com', '127.0.0.1']
 
 # Application definition
 
@@ -125,6 +120,25 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 
 
 # Default primary key field type
+
+# Crispy templates
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
+# Basket session ID
+BASKET_SESSION_ID = 'basket'
+
+# Custom Auth User:
+AUTH_USER_MODEL = 'account.UserBase'
+# LOGIN_REDIRECT_URL = '/account/dashboard'
+LOGIN_URL = '/customer/login/'
+
+
+# Pass reset
+PASSWORD_RESET_TIMEOUT_DAYS = 1
+
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+
+
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
