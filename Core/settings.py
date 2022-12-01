@@ -30,6 +30,7 @@ INSTALLED_APPS = [
     # 'crispy_forms',
     'Store',
     'Cart',
+    'Account'
 
 ]
 
@@ -128,9 +129,9 @@ CRISPY_TEMPLATE_PACK = 'bootstrap4'
 BASKET_SESSION_ID = 'basket'
 
 # Custom Auth User:
-AUTH_USER_MODEL = 'account.UserBase'
-# LOGIN_REDIRECT_URL = '/account/dashboard'
-LOGIN_URL = '/customer/login/'
+AUTH_USER_MODEL = 'Account.UserBase'
+# # LOGIN_REDIRECT_URL = '/account/dashboard'
+# LOGIN_URL = '/customer/login/'
 
 
 # Pass reset

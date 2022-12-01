@@ -6,6 +6,7 @@ from django.utils.translation import gettext_lazy as _
 from django_countries.fields import CountryField
 
 
+
 class CustomAccountManager(BaseUserManager):
     # Super User
     def create_superuser(self, email, user_name, password, **other_fields):
@@ -35,10 +36,11 @@ class CustomAccountManager(BaseUserManager):
         user.save()
         return user
 
+
 class UserBase(AbstractBaseUser, PermissionsMixin):
     email = models.EmailField(_('email address'), unique=True)
     user_name = models.CharField(max_length=150, unique=True)
-    first_name = models.CharField(max_length=150, unique=True)
+    first_name = models.CharField(max_length=150, blank=True)
     bio = models.TextField(_('about'), max_length=500, blank=True)
     country = CountryField()
     is_active = models.BooleanField(default=False)
@@ -50,21 +52,24 @@ class UserBase(AbstractBaseUser, PermissionsMixin):
     objects = CustomAccountManager()
 
     USERNAME_FIELD = 'email'
-    REQUIRED_FIELDS =['user_name']
+    REQUIRED_FIELDS = ['user_name']
 
     class Meta:
         verbose_name = "Accounts"
         verbose_name_plural = "Accounts"
 
+
     # def email_user(self, subject, message):
     #     send_mail(
     #         subject,
     #         message,
-    #         '1@1.com',
+    #         'l@1.com',
     #         [self.email],
-    #         fail_silently=False
+    #         fail_silently=False,
     #     )
 
     def __str__(self):
         return self.user_name
+        
+
 
