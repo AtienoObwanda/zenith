@@ -12,6 +12,7 @@ from django.utils.http import urlsafe_base64_decode, urlsafe_base64_encode
 # from orders.views import user_orders
 
 from .models import UserBase
+
 from .forms import RegistrationForm, UserLoginForm, PwdResetForm, PwdResetConfirmForm, UserEditForm
 from .token import account_activation_token
 
