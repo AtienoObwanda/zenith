@@ -19,7 +19,7 @@ from .token import account_activation_token
 
 def account_register(reuest):
     if request.user.is_authenticated():
-        return redirect('/')
+        return redirect('account:dashboard')
 
     if request.method == 'POST':
         registerForm = RegistrationForm(request.POST)
@@ -43,5 +43,22 @@ def account_register(reuest):
             registerForm = RegistrationForm()
         return render(request, 'account/register.html', {'form': registerForm})
 
-# def login(request):
-#     return render(request, 'Account/login.html')
+
+def account_activate(request, uid64, token):
+    try:
+        uid = force_text(urlsafe_base64_decode(uidb64))
+        user = UserBase.objects.get(pk=uid)
+    except(TypeError, ValueError, OverflowError, user.DoesNotExist):
+        user = None
+    if user is not None and account_activation_token.check_token(user, token):
+        user.is_active = True
+        user.save()
+        login(request, user)
+        return redirect('account:dashboard')
+    else:
+        return render(request, 'account/activation_invalid.html')
+
+
+@login_required
+def dashboard(request):
+    return render(request, 'account/dashboard.html', {'section': 'profile'})
