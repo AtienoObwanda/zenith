@@ -31,7 +31,7 @@ def account_register(reuest):
             user.save()
             current_site = get_current_site(reuest)
             subject = 'Activate Your Account'
-            message = render_to_string('account/account_activation_email.html',{
+            message = render_to_string('Account/account_activation_email.html',{
                 'user': user,
                 'domain': current_site.domain,
                 'uid': urlsafe_base64_encode(force_bytes(user.pk)),
@@ -41,7 +41,7 @@ def account_register(reuest):
             return HttpResponse('User registered successfully! Kindly check email for activation link!') # Create a page for this
         else:
             registerForm = RegistrationForm()
-        return render(request, 'account/register.html', {'form': registerForm})
+        return render(request, 'Account/register.html', {'form': registerForm})
 
 
 def account_activate(request, uid64, token):
@@ -56,9 +56,9 @@ def account_activate(request, uid64, token):
         login(request, user)
         return redirect('account:dashboard')
     else:
-        return render(request, 'account/activation_invalid.html')
+        return render(request, 'Account/activation_invalid.html')
 
 
 @login_required
 def dashboard(request):
-    return render(request, 'account/dashboard.html', {'section': 'profile'})
+    return render(request, 'Account/dashboard.html', {'section': 'profile'})
