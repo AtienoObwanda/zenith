@@ -38,7 +38,7 @@ def account_register(request):
                 'token': account_activation_token.make_token(user),
                  })
             user.email_user(subject=subject, message=message)
-            return HttpResponse('User registered successfully! Kindly check email for activation link!') # Create a page for this
+        return HttpResponse('User registered successfully! Kindly check email for activation link!') # Create a page for this
     else:
         registerForm = RegistrationForm()
         return render(request, 'Account/register.html', {'form': registerForm})
