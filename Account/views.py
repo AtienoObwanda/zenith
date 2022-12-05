@@ -64,3 +64,8 @@ def account_activate(request, uidb64, token):
 @login_required
 def dashboard(request):
     return render(request, 'Account/dashboard.html', {'section': 'profile'})
+
+
+# @login_required
+# def profile(request):
+#     return render(request, 'Account/profile.html')

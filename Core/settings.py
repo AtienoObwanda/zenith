@@ -130,8 +130,8 @@ BASKET_SESSION_ID = 'basket'
 
 # Custom Auth User:
 AUTH_USER_MODEL = 'Account.UserBase'
-# # LOGIN_REDIRECT_URL = '/account/dashboard'
-# LOGIN_URL = '/customer/login/'
+LOGIN_REDIRECT_URL = '/customer/dashboard'
+LOGIN_URL = '/customer/login/'
 
 
 # Pass reset
