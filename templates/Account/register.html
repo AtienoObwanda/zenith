@@ -35,7 +35,6 @@
                 <!--Form-->
                 <form class="account-form p-4 rounded col-lg-10 mx-auto" action="." method="post">
                     {% csrf_token %}
-
                     {% if form.errors %}
                     <p>Please correct the following errors:</p>
                     {% for field in form %}

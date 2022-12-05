@@ -19,7 +19,7 @@ from .token import account_activation_token
 
 def account_register(request):
     if request.user.is_authenticated:
-        return redirect('account:dashboard')
+        return redirect('Account:dashboard')
         
     if request.method == 'POST':
         registerForm = RegistrationForm(request.POST)
@@ -38,13 +38,15 @@ def account_register(request):
                 'token': account_activation_token.make_token(user),
                  })
             user.email_user(subject=subject, message=message)
-        return HttpResponse('User registered successfully! Kindly check email for activation link!') # Create a page for this
+            return HttpResponse('User registered successfully! Kindly check email for activation link!') # Create a page for this
     else:
         registerForm = RegistrationForm()
-        return render(request, 'Account/register.html', {'form': registerForm})
+    return render(request, 'Account/register.html', {'form': registerForm})
 
 
-def account_activate(request, uid64, token):
+
+
+def account_activate(request, uidb64, token):
     try:
         uid = force_text(urlsafe_base64_decode(uidb64))
         user = UserBase.objects.get(pk=uid)
@@ -54,7 +56,7 @@ def account_activate(request, uid64, token):
         user.is_active = True
         user.save()
         login(request, user)
-        return redirect('account:dashboard')
+        return redirect('Account:dashboard')
     else:
         return render(request, 'Account/activation_invalid.html')
 
