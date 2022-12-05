@@ -1,3 +1,7 @@
+{% extends '../base.html' %} {% load django_bootstrap5 %} {% load bootstrap5 %}
+{% load static %} {% block title %}Zenith | Your Cart{% endblock %} 
+{% block content %}
+
 {% autoescape off %}
 Hi {{ user.user_name }},
 
@@ -7,3 +11,5 @@ To activate your account, kindly click on the link below:
 
 http://{{ domain }}{% url 'Account:activate' uidb64=uid token=token %}
 {% endautoescape %}
+
+{% endblock %}
