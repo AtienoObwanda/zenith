@@ -1,19 +1,57 @@
 {% extends '../base.html' %} {% load django_bootstrap5 %} {% load bootstrap5 %}
 {% load static %} {% block title %}Zenith | Your Cart{% endblock %} 
 {% block content %}
+<style>
+  .container-fluid {
+      max-width: 100%;
+  }
+
+  .account-form input {
+      border: 2px solid #ccc;
+      height: calc(2em + .75rem + 2px);
+  }
+
+  .account-form input:focus {
+      border-color: #1497ff;
+      box-shadow: none;
+  }
+</style>
 
 <main class="pt-5">
     <div class="container" style="max-width: 1000px">
         <div class="col-12">
-            <h1 class="h2">Your Dashboard</h1>
+            <div> Password Reset Status</div>
           </div>
           <div class="col-12 d-flex justify-content-between">
-            <div>Reset Status</div>
           </div>
           <hr />
+
     </div>
-    <div class="container" style="max-width: 1000px">
-    </div>
+    <div class="container-fluid">
+      <div class="row no-gutter">
+          <div class="col-md-12">
+              <div class="login d-flex align-items-center py-5">
+                  <div class="container">
+                      <div class="row">
+                          <div class="col-12 col-lg-6  mx-auto">
+                              <div class="p-4">
+                                  {% if 'email' in request.get_full_path %}
+                                          <h3 class="mb-4">Password Reset Inistiated Successfully</h3>
+                                          <p>Check your email for instructions on how to reset</p>
+                                  {% endif%}
+                                  {% if 'complete' in request.get_full_path %}
+                                          <h3 class="mb-4">Password Reset Success</h3>
+                                         
+                                          <a class="btn btn-block  border py-2 mb-4 mt-5 fw-bold rounded" href="{% url "Account:login" %}" style="border-color:#FF0000">Login</a>
+                                  {% endif%}
+                              </div>       
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
 </main>
 
 {% endblock %}
