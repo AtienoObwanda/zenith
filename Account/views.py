@@ -66,6 +66,6 @@ def dashboard(request):
     return render(request, 'Account/dashboard.html', {'section': 'profile'})
 
 
-# @login_required
-# def profile(request):
-#     return render(request, 'Account/profile.html')
+@login_required
+def edit_profile(request):
+    return render(request, 'Account/edit_profile.html')
