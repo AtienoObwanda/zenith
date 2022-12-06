@@ -15,7 +15,7 @@ urlpatterns = [
     path('login/', auth_views.LoginView.as_view(template_name='Account/login.html', form_class=UserLoginForm), name='login'),
     path('dashboard/', views.dashboard, name='dashboard'),
     path('logout/', auth_views.LogoutView.as_view(next_page='/customer/login/'), name='logout'),
-    # path('profile/edit/', views.edit_details, name='edit_details'),
+    path('profile/edit/', views.edit_profile, name='edit_details'),
     # path('profile/delete_user/', views.delete_user, name='delete_user'),
     # path('profile/delete_confirm/', TemplateView.as_view(template_name="Account/delete_confirm.html"), name='delete_confirmation'),
 
