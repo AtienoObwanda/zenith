@@ -17,7 +17,7 @@ urlpatterns = [
     path('logout/', auth_views.LogoutView.as_view(next_page='/customer/login/'), name='logout'),
     path('profile/edit/', views.edit_profile, name='edit_details'),
     path('profile/delete_user/', views.delete_user, name='delete_user'),
-    # path('profile/delete_confirm/', TemplateView.as_view(template_name="Account/delete_confirm.html"), name='delete_confirmation'),
+    path('profile/delete_confirm/', TemplateView.as_view(template_name="Account/delete_profile.html"), name='delete_confirmation'),
 
     
     # Reset password
