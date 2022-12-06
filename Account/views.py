@@ -75,3 +75,10 @@ def edit_profile(request):
         user_form = UserEditForm(instance=request.user)
         
     return render(request, 'Account/edit_profile.html', {'user_form': user_form})
+
+def delete_user(request):
+    user = UserBase.objects.get(user_name=request.user)
+    user.is_active = False
+    user.save()
+    logout(request)
+    return redirect('Account:delete_confirmation')
