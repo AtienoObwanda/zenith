@@ -76,6 +76,7 @@ def edit_profile(request):
         
     return render(request, 'Account/edit_profile.html', {'user_form': user_form})
 
+@login_required
 def delete_user(request):
     user = UserBase.objects.get(user_name=request.user)
     user.is_active = False
