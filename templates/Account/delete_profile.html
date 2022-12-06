@@ -2,19 +2,47 @@
 {% load static %} {% block title %}Zenith | Your Cart{% endblock %} 
 {% block content %}
 
+<style>
+  .account-form input {
+      border: 2px solid #ccc;
+      height: calc(2em + .75rem + 2px);
+  }
+
+  .account-form input:focus {
+      border-color: #1497ff;
+      box-shadow: none;
+  }
+</style>
+
 <main class="pt-5">
     <div class="container" style="max-width: 1000px">
-        <div class="col-12">
-            <h1 class="h2">Sad To see you leave...</h1>
-          </div>
-          <div class="col-12 d-flex justify-content-between">
-            <div>Confirm  Account Deactivation</div>
+        <div class="col-12 pb-3">
+            <div>Sad To see you leave...</div>
           </div>
           <hr />
+
+          <div class="col-12 d-flex justify-content-between">
+            <div>Account Deactivation</div>
+          </div>
     </div>
-    <div class="container" style="max-width: 1000px">
-        
-    </div>
+    <div class="container-fluid">
+      <div class="row no-gutter">
+          <div class="col-md-12">
+              <div class="login d-flex align-items-center py-5">
+                  <div class="container">
+                      <div class="row">
+                          <div class="col-12 col-lg-6 mx-auto">
+                              <div class="p-4">
+                                  <h3 class="mb-4">Account deleted</h3>
+                                  <p>Thank you</p>
+                              </div>       
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
 </main>
 
 {% endblock %}
