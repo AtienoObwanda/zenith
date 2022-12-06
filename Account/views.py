@@ -44,8 +44,6 @@ def account_register(request):
     return render(request, 'Account/register.html', {'form': registerForm})
 
 
-
-
 def account_activate(request, uidb64, token):
     try:
         uid = force_text(urlsafe_base64_decode(uidb64))
@@ -68,4 +66,12 @@ def dashboard(request):
 
 @login_required
 def edit_profile(request):
-    return render(request, 'Account/edit_profile.html')
+    if request.method == 'POST':
+        user_form = UserEditForm(instance=request.user, data=request.POST)
+        
+        if user_form.is_valid():
+            user_form.save()
+    else:
+        user_form = UserEditForm(instance=request.user)
+        
+    return render(request, 'Account/edit_profile.html', {'user_form': user_form})
