@@ -78,4 +78,26 @@ Silicone Watch Straps
 Nylon Watch Straps
 Canvas Watch Straps
 
+Address:
+fName
+lName
+mobile_num
+delivery_address(Street Name / Building / Apartment No. / Floor)
+city
+state/region/area
+
+Delivery method:
+How do you want your order delivered?
+
+Pickup Station > (List all pick up stations)
+Ready for pick up between Thursday 8 Dec and Saturday 10 Dec 
+with cheaper shipping fees
+
+SELECT PICKUP STATION
+Delivery to your home or office
+Delivered between Thursday 8 Dec and Saturday 10 Dec
+For KSh 320
+
+On Check out => Address details => Delivery Method
+
 
