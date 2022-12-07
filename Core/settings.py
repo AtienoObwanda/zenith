@@ -30,7 +30,9 @@ INSTALLED_APPS = [
     # 'crispy_forms',
     'Store',
     'Cart',
-    'Account'
+    'Account',
+    'Payment'
+    
 
 ]
 
