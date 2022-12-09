@@ -4,7 +4,7 @@ autopep8==2.0.0
 beautifulsoup4==4.11.1
 certifi==2022.12.7
 chardet==5.1.0
-charset-normalizer==3.0.1
+# charset-normalizer==3.0.1
 colorama==0.4.6
 coverage==6.5.0
 dj-database-url==1.0.0

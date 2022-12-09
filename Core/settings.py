@@ -1,13 +1,10 @@
 from pathlib import Path
-# import cloudinary
-# import cloudinary.uploader
-# import cloudinary.api
+
 # import dj_database_url
 import os
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 # BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-
 
 
 SECRET_KEY = 'django-insecure-i5v#@#3v@=mku9267fq%m39_zp_c6lqeqsq5a4l3=^zb5b%7c@'
