@@ -70,11 +70,16 @@ WSGI_APPLICATION = 'Core.wsgi.application'
 # Database
 
 DATABASES = {
-    # 'default': {
-    #     'ENGINE': 'django.db.backends.sqlite3',
-    #     'NAME': BASE_DIR / 'db.sqlite3',
-    # }
+  'default': {
+    'ENGINE': 'django.db.backends.postgresql_psycopg2',
+    'NAME': 'postgres',
+    'USER': 'postgres',
+    'PASSWORD': 'swub!m5Rrs5RNMB',
+    'HOST': 'db.hxddevwgtirgybymsyap.supabase.co',
+    'PORT': '5432',
+  }
 }
+
 
 
 # Password validation
