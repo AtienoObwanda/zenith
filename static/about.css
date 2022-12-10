@@ -1,15 +1,12 @@
+/*
+
 *{
-    /* background-color: #F3EEE7; */
     padding: 0;
     margin: 0;
     box-sizing: border-box;
 }
 
-/* body {
-    background-color: #F3EEE7;
 
-} */
-  /* End Of Navbar */
 
   .mainContainer {
     min-width: 80%;
@@ -17,7 +14,6 @@
     overflow: hidden;
     background: url("https://res.cloudinary.com/dyiuol5sx/image/upload/v1661760707/Zenith/img1_hexz22.png") top center/cover no-repeat;
     position: relative;
-    /* margin-top: -23vh; */
   }
   
   
@@ -99,8 +95,7 @@
 
   }
   .breakImg{
-    /* min-width: 80%; */
-    /* min-height: 95vh; */
+   
     width: 472px;
     height: 464px;
     overflow: hidden;
@@ -151,3 +146,5 @@
     position: relative;
   }
   
+  
+*/
