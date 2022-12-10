@@ -2,11 +2,15 @@ asgiref==3.5.2
 astroid==2.12.13
 autopep8==2.0.0
 beautifulsoup4==4.11.1
+bleach==5.0.1
 certifi==2022.12.7
 chardet==5.1.0
+charset-normalizer==2.1.1
 # charset-normalizer==3.0.1
+
 colorama==0.4.6
 coverage==6.5.0
+dill==0.3.6
 dj-database-url==1.0.0
 Django==3.2.16
 django-bootstrap-v5==1.0.11
@@ -22,8 +26,10 @@ isort==5.10.1
 lazy-object-proxy==1.8.0
 mccabe==0.7.0
 Pillow==9.3.0
-# pkg_resources==0.0.0
+platformdirs==2.6.0
+psycopg2-binary==2.9.5
 pycodestyle==2.10.0
+# pkg_resources==0.0.0
 pyflakes==3.0.1
 pylint==2.15.8
 pytz==2022.6
@@ -34,8 +40,11 @@ sqlparse==0.4.3
 stripe==5.0.0
 testfixtures==6.17.1
 toml==0.10.2
+tomli==2.0.1
+tomlkit==0.11.6
 typed-ast==1.5.4
-typing_extensions==4.4.0
+typing-extensions==4.4.0
 urllib3==1.26.13
+webencodings==0.5.1
 wrapt==1.14.1
 zipp==3.11.0
