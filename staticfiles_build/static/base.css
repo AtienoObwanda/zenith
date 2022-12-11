@@ -1,0 +1,226 @@
+/* Bootstrap Over-ride */
+@media (min-width: 1000px){
+  .container{
+      max-width: 1000px;
+  }
+}
+@media (max-width: 1200px){
+  .container{
+      max-width: 100%;
+      padding:0 24px;
+  }
+}
+.dropdown-toggle::after {
+  display: none;
+}
+.dropdown-menu{
+  top:58px;
+  left:0px;
+  padding:10px;
+}
+
+*{
+  /* background-color: #F3EEE7; */
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  background-color: #F3EEE7;
+
+
+}
+
+  
+  .wtchs{
+    font-family: 'Inknut Antiqua';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 25px;
+    /* line-height: 86px; */
+    color: #000000;
+    text-align: center;
+  }
+
+  .zen{
+    font-family: 'Inknut Antiqua'!important;
+    font-style: normal!important;
+    font-weight: 700!important;
+    font-size: 32px!important;
+    line-height: 83px!important;
+    /* identical to box height */
+    color: #000000!important;
+  }
+  .navText{
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 24px;
+
+    color: #000000;
+  }
+
+  /* bodybar */
+
+  .navbar-nav .nav-link {
+    color: #000 !important;
+    padding: 0.5rem 0rem !important;
+    font-weight: 100!important;
+    border-color: transparent;
+    margin-left: 1.5rem;
+    transition: none;
+    font-size: 14px !important;
+}
+
+.navbar .navbar-toggler:focus {
+    box-shadow: none;
+}
+
+.navbar-nav .nav-link.active,
+.border-red {
+    border-bottom: 2px solid #FF0000;
+}
+
+.navbar-nav .nav-link:hover {
+    border-bottom: 2px solid #FF0000;
+}
+
+
+/* Responsive navigation menu (for mobile devices) */
+@media screen and (max-width: 600px) {
+  .topnav a, .topnav-right {
+    float: none;
+    display: block;
+  }
+  
+  .topnav-centered a {
+    position: relative;
+    top: 0;
+    left: 0;
+    transform: none;
+  }
+}
+@media (max-width: 767.5px) {
+
+  .navbar-nav .nav-link.active,
+  .navbar-nav .nav-link:hover {
+      background-color: #b71c1c;
+      color: #fff !important;
+  }
+
+  .navbar-nav .nav-link {
+      border: 3px solid transparent;
+      margin: 0.8rem 0;
+      display: flex;
+      border-radius: 10px;
+      justify-content: center;
+  }
+}
+
+
+/* Footer */
+
+
+
+.card{
+    color:#383431 !important;
+    background-color: #FFFFFF !important;
+}
+
+h5{
+    font-size: calc(20px + (28 - 20) * ((100vw - 360px) / (1600 - 360))) !important; 
+}
+.fa{
+    cursor: pointer;
+    font-size: 21px ;
+    margin: 5px 10px 5px 10px !important;
+}
+
+button {
+    font-size: calc(13px + (16 - 13) * ((100vw - 360px) / (1600 - 320))) !important;
+    border-radius:25 !important;
+    padding-left:  calc(20px + (28 - 20) * ((100vw - 360px) / (1600 - 360))) !important; 
+    padding-right: calc(20px + (28 - 20) * ((100vw - 360px) / (1600 - 360))) !important; 
+    padding-top:  calc(10px + (12 - 10) * ((100vw - 360px) / (1600 - 360))) !important; 
+    padding-bottom:   calc(10px + (12 - 10) * ((100vw - 360px) / (1600 - 360))) !important;
+    background-color:#FF0000 !important; 
+    border:none !important; 
+ }
+
+ button:focus {
+     -moz-box-shadow: none !important;
+     -webkit-box-shadow: none !important;
+     box-shadow: none !important;
+     outline-width: 0;
+
+ }
+
+li{
+    margin-top: 8px ;
+    margin-bottom: 8px ;
+}
+
+input::-webkit-input-placeholder {
+  padding-left: 5px !important;
+  transform:translate3d(0,-2px,0)
+}
+
+input::placeholder {
+    vertical-align:middle !important;
+    color:rgb(196, 193, 193) !important;
+    font-size: calc(12px + (14 - 12) * ((100vw - 360px) / (1600 - 360))) !important; 
+}
+
+input{
+    border-radius:2px !important;
+    background: transparent !important;
+    color: #FFFFFF !important;
+  
+
+}
+
+input:focus {
+     -moz-box-shadow: none !important;
+     -webkit-box-shadow: none !important;
+     box-shadow: none !important;
+     outline-width: 0;
+     border-color: #FFFFFF !important;
+ }
+
+ 
+
+ li:first-child {
+    font-size:  18px !important;
+    font-weight: bold;    
+}
+
+footer{
+    background-color:#000 !important;
+    color:#FF0000 !important;
+} 
+
+small{
+    font-size: calc(12px + (14 - 12) * ((100vw - 360px) / (1600 - 360))) !important; 
+}
+
+p{
+    font-size: calc(12px + (14 - 12) * ((100vw - 360px) / (1600 - 360))) !important; 
+    color:rgb(196, 193, 193) !important;
+}
+
+.social{
+    position: relative;
+    left: -10px;
+}
+
+.Subscribe{
+    background-color:#FF0000 !important;
+    color: #383431 !important;
+    font-weight: bold ;
+}
+
+li:not(:first-child) {
+    color:rgb(196, 193, 193) !important;
+}
