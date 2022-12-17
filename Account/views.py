@@ -49,6 +49,7 @@ def account_register(request):
                     'token': account_activation_token.make_token(user),
                     })
                 user.email_user(subject, message, html_message=message)
+                print(settings.DEFAULT_FROM_EMAIL)
             return HttpResponse('User registered successfully! Kindly check email for activation link!') # Create a page for this            
     else:
         registerForm = RegistrationForm()
