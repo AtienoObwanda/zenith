@@ -152,7 +152,7 @@ LOGIN_URL = '/customer/login/'
 # Pass reset
 PASSWORD_RESET_TIMEOUT_DAYS = 1
 
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+# EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 # Bottom of settings.py 
 # Twilio SendGrid
