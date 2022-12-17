@@ -1,8 +1,16 @@
 from django import forms
 from django.contrib.auth.forms import (AuthenticationForm, PasswordResetForm,
                                        SetPasswordForm)
+from django.contrib.sites.shortcuts import get_current_site
+from django.utils.encoding import force_bytes
+from django.utils.http import urlsafe_base64_encode
+
+from django.template.loader import render_to_string
+from .token import account_activation_token
+
 
 from .models import UserBase
+
 
 
 
@@ -63,7 +71,6 @@ class RegistrationForm(forms.ModelForm):
             {'class': 'form-control mb-3', 'placeholder': 'Password'})
         self.fields['password2'].widget.attrs.update(
             {'class': 'form-control', 'placeholder': 'Repeat Password'})
-
 
 class PwdResetForm(PasswordResetForm):
 
