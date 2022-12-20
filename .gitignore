@@ -2,7 +2,7 @@
 __pycache__/
 *.py[cod]
 *$py.class
-Cor/env
+Core/env
 
 # C extensions
 *.so
@@ -134,3 +134,5 @@ dmypy.json
 todo.txt
 .vercel
 
+#  Sendgrid:
+sendgrid.env
