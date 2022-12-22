@@ -41,7 +41,8 @@ def account_register(request):
                  })
             # user.email_user(subject=subject, message=message,html_message=message)
             user.email_user(subject=subject, message=message)
-            return HttpResponse('User registered successfully! Kindly check email for activation link!') # Create a page for this
+            return render(request,'Account/signup_success.html') # Create a page for this
+            # return HttpResponse('User registered successfully! Kindly check email for activation link!') # Create a page for this
         
     else:
         registerForm = RegistrationForm()
