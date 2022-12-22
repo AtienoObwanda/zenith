@@ -19,64 +19,6 @@ from .forms import RegistrationForm, UserLoginForm, PwdResetForm, PwdResetConfir
 from .token import account_activation_token
 
 
-    
-    
-# def account_register(request):
-#     if request.user.is_authenticated:
-#         return redirect('Account:dashboard')
-        
-#     if request.method == 'POST':
-#         registerForm = RegistrationForm(request.POST)
-#         if registerForm.is_valid():
-#             user = registerForm.save(commit=False)
-#             user.email = registerForm.cleaned_data['email']
-#             user.set_password(registerForm.cleaned_data['password'])
-#             user.is_active = False
-#             user.save()
-#             current_site = get_current_site(request)
-            # subject = 'Activate your Account'
-            # message = render_to_string('Account/account_activation_email.html',{
-            #     'user': user,
-            #     'domain': current_site.domain,
-            #     'uid': urlsafe_base64_encode(force_bytes(user.pk)),
-            #     'token': account_activation_token.make_token(user),
-            #      })
-            # user.email_user(subject=subject, message=message)
-            
-            # uName = registerForm.cleaned_data['user_name']
-            # user_email = user.email
-            # message = Mail(
-            #     from_email='communications.weconnect@gmail.com',
-            #     to_emails=[user_email],
-            #     subject='Welcome To Zenith!',
-            #     html_content='Hey, Your Zenith user Account has been created successfully...'
-            #     )
-            # print(user_email)
-            # message.dynamic_template_data = {
-            #     'user': user,
-            #     'domain': current_site.domain,
-            #     'uid': urlsafe_base64_encode(force_bytes(user.pk)),
-            #     'token': account_activation_token.make_token(user),
-            #     # 'user_name': uName,
-
-            #         }
-            # message.template_id =  'd-1f61c397b2334ce5b4628a9cbf19c437'
-    #         user.save()
-    #         try:
-    #             sg = SendGridAPIClient(os.environ.get('SENDGRID_API_KEY'))
-    #             response = sg.send(message)
-    #             print(response.status_code)
-    #             print(response.body)
-    #             print(response.headers)
-    #         except Exception as e:
-    #             print(e.message)
-    #         return HttpResponse('User registered successfully! Kindly check email for activation link!') # Create a page for this
-        
-    # else:
-    #     registerForm = RegistrationForm()
-    # return render(request, 'Account/register.html', {'form': registerForm})
-
-
 def account_register(request):
     if request.user.is_authenticated:
         return redirect('Account:dashboard')
