@@ -6,7 +6,6 @@ import environ
 env = environ.Env()
 environ.Env.read_env() # Reads the .env file
 
-# import dj_database_url
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 load_dotenv(os.path.join(BASE_DIR, ".env"))
@@ -152,18 +151,21 @@ LOGIN_URL = '/customer/login/'
 # Pass reset
 PASSWORD_RESET_TIMEOUT_DAYS = 1
 
-# EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # Bottom of settings.py 
 # Twilio SendGrid
+
 EMAIL_HOST = 'smtp.sendgrid.net'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 EMAIL_HOST_USER = 'apikey' # Name for all the SenGrid accounts
 EMAIL_HOST_PASSWORD = env('SENDGRID_API_KEY')
+DEFAULT_FROM_EMAIL = env('FROM_EMAIL') # The email you'll be sending emails from
+# Server	= 'smtp.sendgrid.net'
+# Ports =25, 587
+# Username='apikey'
+# Password= env('SENDGRID_API_KEY')
 
-# The email you'll be sending emails from
-DEFAULT_FROM_EMAIL = env('FROM_EMAIL', default='noreply@gmail.com')
+# EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
-
-DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'

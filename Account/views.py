@@ -2,6 +2,7 @@ import os
 from sendgrid import SendGridAPIClient
 from sendgrid.helpers.mail import Mail
 
+
 from django.shortcuts import render, redirect
 from django.contrib.auth import login, logout
 from django.contrib.auth.decorators import login_required
@@ -17,23 +18,7 @@ from .models import UserBase
 from .forms import RegistrationForm, UserLoginForm, PwdResetForm, PwdResetConfirmForm, UserEditForm
 from .token import account_activation_token
 
-# sendgrid Test config
 
-# message = Mail(
-#     from_email='millicent.obwanda@student.moringaschool.com',
-#     to_emails='atienoobwanda@gmail.com',
-#     subject='Sending with Twilio SendGrid is Fun',
-#     html_content='<strong>and easy to do anywhere, even with Python</strong>')
-# try:
-#     sg = SendGridAPIClient(os.environ.get('SENDGRID_API_KEY'))
-#     response = sg.send(message)
-#     print(response.status_code)
-#     print(response.body)
-#     print(response.headers)
-# except Exception as e:
-#     print(e.message)
-    
-    
     
     
 # def account_register(request):
@@ -47,8 +32,8 @@ from .token import account_activation_token
 #             user.email = registerForm.cleaned_data['email']
 #             user.set_password(registerForm.cleaned_data['password'])
 #             user.is_active = False
-            # user.save()
-            # current_site = get_current_site(request)
+#             user.save()
+#             current_site = get_current_site(request)
             # subject = 'Activate your Account'
             # message = render_to_string('Account/account_activation_email.html',{
             #     'user': user,
@@ -57,26 +42,26 @@ from .token import account_activation_token
             #     'token': account_activation_token.make_token(user),
             #      })
             # user.email_user(subject=subject, message=message)
+            
             # uName = registerForm.cleaned_data['user_name']
             # user_email = user.email
             # message = Mail(
-            #     from_email='pm@opinion-space.com',
+            #     from_email='communications.weconnect@gmail.com',
             #     to_emails=[user_email],
             #     subject='Welcome To Zenith!',
             #     html_content='Hey, Your Zenith user Account has been created successfully...'
-            # )
+            #     )
             # print(user_email)
             # message.dynamic_template_data = {
             #     'user': user,
             #     'domain': current_site.domain,
             #     'uid': urlsafe_base64_encode(force_bytes(user.pk)),
             #     'token': account_activation_token.make_token(user),
-            #     'user_name': Uname,
+            #     # 'user_name': uName,
 
             #         }
             # message.template_id =  'd-1f61c397b2334ce5b4628a9cbf19c437'
     #         user.save()
-
     #         try:
     #             sg = SendGridAPIClient(os.environ.get('SENDGRID_API_KEY'))
     #             response = sg.send(message)
@@ -112,6 +97,7 @@ def account_register(request):
                 'uid': urlsafe_base64_encode(force_bytes(user.pk)),
                 'token': account_activation_token.make_token(user),
                  })
+            # user.email_user(subject=subject, message=message,html_message=message)
             user.email_user(subject=subject, message=message)
             return HttpResponse('User registered successfully! Kindly check email for activation link!') # Create a page for this
         
@@ -159,3 +145,23 @@ def delete_user(request):
     user.save()
     logout(request)
     return redirect('Account:delete_confirmation')
+
+
+
+# sendgrid Test config
+# message = Mail(
+#     from_email='communications.weconnect@gmail.com',
+#     to_emails='atienoobwanda@gmail.com',
+#     subject='Sending with Twilio SendGrid is Fun',
+#     html_content='<strong>and easy to do anywhere, even with Python</strong>'
+#     )
+# try:
+#     sg = SendGridAPIClient(os.environ.get('SENDGRID_API_KEY'))
+#     response = sg.send(message)
+#     print(response.status_code)
+#     print(response.body)
+#     print(response.headers)
+        
+# except Exception as e:
+#     # print(e.message)
+#     print('Error!')
