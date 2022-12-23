@@ -1,4 +1,7 @@
 import os
+import cloudinary
+import cloudinary.uploader
+import cloudinary.api
 from pathlib import Path
 from dotenv import load_dotenv
 import environ
@@ -29,10 +32,12 @@ INSTALLED_APPS = [
     'widget_tweaks',
     'django_bootstrap5',
     # 'crispy_forms',
+    'cloudinary',
+    'cloudinary_storage',
     'Store',
     'Cart',
     'Account',
-    'Payment'
+    'Payment',
     
 
 ]
@@ -138,6 +143,19 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 
 # Crispy templates
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
+cloudinary.config( 
+  cloud_name = os.environ["cloud_name"],
+  api_key =  os.environ["api_key"], 
+  api_secret = os.environ["api_secret"],
+)
+
+CLOUDINARY_STORAGE = {
+    'CLOUD_NAME':os.environ["CLOUD_NAME"], 
+    'API_KEY':os.environ["API_KEY"],
+    'API_SECRET':os.environ["API_SECRET"],
+}
+
+DEFAULT_FILE_STORAGE = "cloudinary_storage.storage.MediaCloudinaryStorage"
 
 # Basket session ID
 BASKET_SESSION_ID = 'basket'
