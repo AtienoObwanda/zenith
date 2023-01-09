@@ -1,0 +1,66 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+
+
+.payContainer {
+    margin: 30px auto;
+}
+
+.payContainer .card {
+    width: 100%;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    background: #fff;
+    border-radius: 0px;
+}
+
+body {
+    background: #eee
+}
+
+
+.payContainer .card .img-box {
+    width: 80px;
+    height: 50px;
+}
+
+.payContainer .card img {
+    width: 100%;
+    object-fit: fill;
+}
+
+.payContainer .card .number {
+    font-size: 24px;
+}
+
+.payContainer .card-body .btn.btn-primary .fab.fa-cc-paypal {
+    font-size: 32px;
+    color: #3333f7;
+}
+
+.fab.fa-cc-amex {
+    color: #1c6acf;
+    font-size: 32px;
+}
+
+.fab.fa-cc-mastercard {
+    font-size: 32px;
+    color: red;
+}
+
+.fab.fa-cc-discover {
+    font-size: 32px;
+    color: orange;
+}
+
+.c-green {
+    color: green;
+}
+
+.box {
+    height: 40px;
+    width: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #ddd;
+}
+
