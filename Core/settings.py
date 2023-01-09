@@ -34,6 +34,7 @@ INSTALLED_APPS = [
     # 'crispy_forms',
     'cloudinary',
     'cloudinary_storage',
+    'django_daraja',
     'Store',
     'Cart',
     'Account',

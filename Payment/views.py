@@ -1,17 +1,28 @@
+from __future__ import unicode_literals
+import os
 import json
-
 # import stripe
 from django.contrib.auth.decorators import login_required
-from django.http.response import HttpResponse
+from django.http.response import HttpResponse, JsonResponse
 from django.shortcuts import render
 from django.views.decorators.csrf import csrf_exempt
 from django.views.generic.base import TemplateView
+from django.views.generic import View
 
+
+# M-Pesa
 from django_daraja.mpesa.core import MpesaClient
+from django_daraja.mpesa import utils
+from datetime import datetime
+
+
 
 # from Orders.views import payment_confirmation
 from Cart.cart import Cart
 
+cl = MpesaClient()
+stk_push_callback_url = 'https://api.darajambili.com/express-payment'
+b2c_callback_url = 'https://api.darajambili.com/b2c/result'
 
 def order_placed(request):
     cart = Cart(request)
@@ -51,3 +62,48 @@ def mpesa_payment_method(request):
     # callback_url = 'https://api.darajambili.com/express-payment'
     # response = cl.stk_push(phone_number, amount, account_reference, transaction_desc, callback_url)
     return render(request, 'Payment/mpesa_payment.html')
+
+
+# Test M-Pesa config
+def index(request):
+    return HttpResponse('Welcome to the home of daraja APIs')
+
+def oauth_success(request):
+	r = cl.access_token()
+	return JsonResponse(r, safe=False)
+
+def stk_push_success(request):
+	phone_number = os.environ['LNM_PHONE_NUMBER']
+	amount = 1
+	account_reference = 'ABC001'
+	transaction_desc = 'STK Pushc Description'
+	callback_url = stk_push_callback_url
+	r = cl.stk_push(phone_number, amount, account_reference, transaction_desc, callback_url)
+	return JsonResponse(r.response_description, safe=False)
+
+def business_payment_success(request):
+	phone_number =  os.environ['B2C_PHONE_NUMBER']
+	amount = 1
+	transaction_desc = 'Business Payment Description'
+	occassion = 'Test business payment occassion'
+	callback_url = b2c_callback_url
+	r = cl.business_payment(phone_number, amount, transaction_desc, callback_url, occassion)
+	return JsonResponse(r.response_description, safe=False)
+
+def salary_payment_success(request):
+	phone_number =  os.environ['B2C_PHONE_NUMBER']
+	amount = 1
+	transaction_desc = 'Salary Payment Description'
+	occassion = 'Test salary payment occassion'
+	callback_url = b2c_callback_url
+	r = cl.salary_payment(phone_number, amount, transaction_desc, callback_url, occassion)
+	return JsonResponse(r.response_description, safe=False)
+
+def promotion_payment_success(request):
+	phone_number =  os.environ['B2C_PHONE_NUMBER']
+	amount = 1
+	transaction_desc = 'Promotion Payment Description'
+	occassion = 'Test promotion payment occassion'
+	callback_url = b2c_callback_url
+	r = cl.promotion_payment(phone_number, amount, transaction_desc, callback_url, occassion)
+	return JsonResponse(r.response_description, safe=False)

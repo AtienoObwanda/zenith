@@ -1,4 +1,4 @@
-from django.urls import path
+from django.urls import path, include
 
 from . import views
 
@@ -11,7 +11,7 @@ test_patterns = [
 	path('stk-push/success', views.stk_push_success, name='test_stk_push_success'),
 	path('business-payment/success', views.business_payment_success, name='test_business_payment_success'),
 	path('salary-payment/success', views.salary_payment_success, name='test_salary_payment_success'),
-	path('promotion-payment/success', views.promotion_payment_success, ame='test_promotion_payment_success'),
+	path('promotion-payment/success', views.promotion_payment_success, name='test_promotion_payment_success'),
 ]
 
 urlpatterns = [
