@@ -67,7 +67,7 @@ def mpesa_payment_method(request):
 # Test M-Pesa config
 def index(request):
     cl = MpesaClient()
-    phone_number = '0743068355'
+    phone_number = '0700851861'
     amount = 1
     account_reference = 'reference'
     transaction_desc = 'Description'

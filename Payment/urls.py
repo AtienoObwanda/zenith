@@ -17,5 +17,7 @@ urlpatterns = [
     path('placed/orders/', views.order_placed, name='order_placed'), #Success after payment
     path('error/', views.Error.as_view(), name='error'),
     path('mobile-money/m-pesa/', views.mpesa_payment_method, name='mpesaPay'),
-    path('tests/', include(test_patterns), name='tests'),   
+    # path('tests/', include(test_patterns), name='tests'), 
+    path('test-home', views.index, name='django_daraja_index'),
+  
 ]

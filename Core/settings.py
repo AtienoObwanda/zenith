@@ -166,6 +166,47 @@ AUTH_USER_MODEL = 'Account.UserBase'
 LOGIN_REDIRECT_URL = '/customer/dashboard'
 LOGIN_URL = '/customer/login/'
 
+# M-PESA CONFIGURATION:
+# ********************************
+MPESA_ENVIRONMENT = os.environ['MPESA_ENVIRONMENT']
+
+# Credentials for the daraja app
+
+MPESA_CONSUMER_KEY = os.environ['MPESA_CONSUMER_KEY']
+MPESA_CONSUMER_SECRET = os.environ['MPESA_CONSUMER_SECRET']
+
+#Shortcode to use for transactions. For sandbox  use the Shortcode 1 provided on test credentials page
+
+MPESA_SHORTCODE = os.environ['MPESA_SHORTCODE']
+
+# Shortcode to use for Lipa na MPESA Online (MPESA Express) transactions
+# This is only used on sandbox, do not set this variable in production
+# For sandbox use the Lipa na MPESA Online Shorcode provided on test credentials page
+
+MPESA_EXPRESS_SHORTCODE = os.environ['MPESA_EXPRESS_SHORTCODE']
+
+# Type of shortcode
+# Possible values:
+# - paybill (For Paybill)
+# - till_number (For Buy Goods Till Number)
+
+MPESA_SHORTCODE_TYPE = os.environ['MPESA_SHORTCODE_TYPE']
+
+# Lipa na MPESA Online passkey
+# Sandbox passkey is available on test credentials page
+# Production passkey is sent via email once you go live
+
+MPESA_PASSKEY = os.environ['MPESA_PASSKEY']
+
+# Username for initiator (to be used in B2C, B2B, AccountBalance and TransactionStatusQuery Transactions)
+
+MPESA_INITIATOR_USERNAME = os.environ['MPESA_INITIATOR_USERNAME']
+
+# Plaintext password for initiator (to be used in B2C, B2B, AccountBalance and TransactionStatusQuery Transactions)
+
+MPESA_INITIATOR_SECURITY_CREDENTIAL = os.environ['MPESA_INITIATOR_SECURITY_CREDENTIAL']
+
+# **********************************8
 
 # Pass reset
 PASSWORD_RESET_TIMEOUT_DAYS = 1
