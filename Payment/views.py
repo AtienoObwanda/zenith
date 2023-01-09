@@ -29,3 +29,13 @@ def CartView(request):
     
     
     return render(request, 'Payment/payment.html')
+
+@login_required
+def payment_method(request):
+    cart = Cart(request)
+    total = str(cart.get_total_price())
+    total = total.replace('.', '')
+    total = int(total)
+    
+    return render(request, 'Payment/payment_method.html', {'total': total, cart: cart})
+

@@ -6,7 +6,7 @@ app_name = 'Payment'
 
 
 urlpatterns = [
-    path('', views.CartView,  name='cart'),
-    path('placed/orders/', views.order_placed, name='order_placed'),
+    path('', views.payment_method,  name='payment_method'),
+    path('placed/orders/', views.order_placed, name='order_placed'), #Success after payment
     path('error/', views.Error.as_view(), name='error'),
 ]
