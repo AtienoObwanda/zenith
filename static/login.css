@@ -1,4 +1,6 @@
-
+body{
+    overflow: hidden;
+}
 input{
     border: none;
     /* border: bottom 1px #ff0000 !important;  */

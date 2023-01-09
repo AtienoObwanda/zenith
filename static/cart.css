@@ -11,9 +11,9 @@
     padding: 10px;
   }
   
-  /* body {
-    background: #eee;
-  } */
+  body {
+    overflow: hidden;
+    }
   
   .cart {
     background: #fff;
