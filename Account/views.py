@@ -87,22 +87,3 @@ def delete_user(request):
     logout(request)
     return redirect('Account:delete_confirmation')
 
-
-
-# sendgrid Test config
-# message = Mail(
-#     from_email='communications.weconnect@gmail.com',
-#     to_emails='atienoobwanda@gmail.com',
-#     subject='Sending with Twilio SendGrid is Fun',
-#     html_content='<strong>and easy to do anywhere, even with Python</strong>'
-#     )
-# try:
-#     sg = SendGridAPIClient(os.environ.get('SENDGRID_API_KEY'))
-#     response = sg.send(message)
-#     print(response.status_code)
-#     print(response.body)
-#     print(response.headers)
-        
-# except Exception as e:
-#     # print(e.message)
-#     print('Error!')

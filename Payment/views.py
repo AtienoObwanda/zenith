@@ -66,7 +66,14 @@ def mpesa_payment_method(request):
 
 # Test M-Pesa config
 def index(request):
-    return HttpResponse('Welcome to the home of daraja APIs')
+    cl = MpesaClient()
+    phone_number = '0743068355'
+    amount = 1
+    account_reference = 'reference'
+    transaction_desc = 'Description'
+    callback_url = 'https://darajambili.herokuapp.com/express-payment';
+    response = cl.stk_push(phone_number, amount, account_reference, transaction_desc, callback_url)
+    return HttpResponse(response)
 
 def oauth_success(request):
 	r = cl.access_token()
@@ -81,29 +88,6 @@ def stk_push_success(request):
 	r = cl.stk_push(phone_number, amount, account_reference, transaction_desc, callback_url)
 	return JsonResponse(r.response_description, safe=False)
 
-def business_payment_success(request):
-	phone_number =  os.environ['B2C_PHONE_NUMBER']
-	amount = 1
-	transaction_desc = 'Business Payment Description'
-	occassion = 'Test business payment occassion'
-	callback_url = b2c_callback_url
-	r = cl.business_payment(phone_number, amount, transaction_desc, callback_url, occassion)
-	return JsonResponse(r.response_description, safe=False)
-
-def salary_payment_success(request):
-	phone_number =  os.environ['B2C_PHONE_NUMBER']
-	amount = 1
-	transaction_desc = 'Salary Payment Description'
-	occassion = 'Test salary payment occassion'
-	callback_url = b2c_callback_url
-	r = cl.salary_payment(phone_number, amount, transaction_desc, callback_url, occassion)
-	return JsonResponse(r.response_description, safe=False)
-
-def promotion_payment_success(request):
-	phone_number =  os.environ['B2C_PHONE_NUMBER']
-	amount = 1
-	transaction_desc = 'Promotion Payment Description'
-	occassion = 'Test promotion payment occassion'
-	callback_url = b2c_callback_url
-	r = cl.promotion_payment(phone_number, amount, transaction_desc, callback_url, occassion)
-	return JsonResponse(r.response_description, safe=False)
+def stk_push_callback(request):
+        data = request.body
+        return HttpResponse("STK Push in Django👋")
