@@ -43,11 +43,11 @@ def payment_method(request):
 
 @login_required
 def mpesa_payment_method(request):
-    cl = MpesaClient()
-    phone_number = '0700851861'
-    amount = 1
-    account_reference = 'reference'
-    transaction_desc = 'Description'
-    callback_url = 'https://api.darajambili.com/express-payment'
-    response = cl.stk_push(phone_number, amount, account_reference, transaction_desc, callback_url)
+    # cl = MpesaClient()
+    # phone_number = '0700851861'
+    # amount = 1
+    # account_reference = 'reference'
+    # transaction_desc = 'Description'
+    # callback_url = 'https://api.darajambili.com/express-payment'
+    # response = cl.stk_push(phone_number, amount, account_reference, transaction_desc, callback_url)
     return render(request, 'Payment/mpesa_payment.html')
