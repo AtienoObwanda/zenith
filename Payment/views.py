@@ -39,3 +39,6 @@ def payment_method(request):
     
     return render(request, 'Payment/payment_method.html', {'total': total, cart: cart})
 
+@login_required
+def mpesa_payment_method(request):
+    return render(request, 'Payment/mpesa_payment.html')
