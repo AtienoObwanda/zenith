@@ -1,7 +1,7 @@
 body{
     overflow: hidden;
 }
-input{
+.input{
     border: none;
     /* border: bottom 1px #ff0000 !important;  */
     outline: none;
