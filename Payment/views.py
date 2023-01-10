@@ -67,8 +67,8 @@ def mpesa_payment_method(request):
 # Test M-Pesa config
 def index(request):
     cl = MpesaClient()
-    phone_number = '0700851861'
-    amount = 1
+    phone_number = '0700851861' # have user phone number
+    amount = 1 # the item price
     account_reference = 'reference'
     transaction_desc = 'Description'
     callback_url = 'https://darajambili.herokuapp.com/express-payment';
