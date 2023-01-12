@@ -19,6 +19,7 @@ from datetime import datetime
 
 # from Orders.views import payment_confirmation
 from Cart.cart import Cart
+from .forms import MobileMoneyForm
 
 cl = MpesaClient()
 stk_push_callback_url = 'https://api.darajambili.com/express-payment'
@@ -54,13 +55,22 @@ def payment_method(request):
 
 @login_required
 def mpesa_payment_method(request):
-    # cl = MpesaClient()
-    # phone_number = '0700851861'
-    # amount = 1
-    # account_reference = 'reference'
-    # transaction_desc = 'Description'
-    # callback_url = 'https://api.darajambili.com/express-payment'
-    # response = cl.stk_push(phone_number, amount, account_reference, transaction_desc, callback_url)
+    # current_user = request.user.client
+    if request.method == 'POST':
+        form = MobileMoneyForm(request.POST)
+        if form.is_valid():
+            # order = form.save(commit=False)
+            order = form.save(commit=True)
+            cl = MpesaClient()
+            phone_number = form.cleaned_data['phone_number']
+            amount = 1
+            account_reference = 'reference'
+            transaction_desc = 'Description'
+            callback_url = 'https://api.darajambili.com/express-payment'
+            response = cl.stk_push(phone_number, amount, account_reference, transaction_desc, callback_url)
+            return HttpResponse(response)
+    else:
+            form = MobileMoneyForm()
     return render(request, 'Payment/mpesa_payment.html')
 
 

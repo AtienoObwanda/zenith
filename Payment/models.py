@@ -1,3 +1,14 @@
-from django.db import models
+# from django.db import models
 
-# Create your models here.
+# class MobilePayment(models.Model):
+#     phone = models.CharField()
+#     pass
+    
+# class PaypalPayment(models.Model):
+#     pass
+
+# class cardPayment(models.Model):
+#     pass
+
+# class Shipping(models.Model):
+#     pass
