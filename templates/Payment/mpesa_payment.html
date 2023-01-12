@@ -1,17 +1,36 @@
-{% extends "../base.html" %}
+{% extends "../base.html" %} {% block title %}Zenith Payments | Mobile Money{% endblock %}
 
-{% block title %}Log-in{% endblock %} 
+{% load widget_tweaks %}
 {% block content %}
+
 <div class="col-12 mt-4">
   <p class="mb-0 fw-bold h4 text-center">M-Pesa Payment Method</p>
 </div>
 <div class="container payContainer">
   <div class="row">
-    <div class="col-8 mb-3">
+    <div class="col-6 mb-3">
       <div class="card p-3">
-        <p>Num</p>
+        <!-- Form -->
+        <form method="POST" enctype="multipart/form-data" action="">
+          {% csrf_token %}
+          {% for field in form.visible_fields %}
+              <div class="form-group">
+                {{ field.label_tag }}
+                {% render_field field class="form-control" %}
+                {% if messages%}
+                {% for message in messages %}
+                <span style="color:red">{{ message }}</span>
+                {% endfor %}
+                {% endif %}
+          {% endfor %}
+              <br>
+          <input type="submit" onclick="mpesaPay()" value="Confirm Payment" class="btn btn-block btn-primary" style="background-color: #60D143; border: #60D143;">
+          </div>
+        </form>
+        <!--End Of Form-->
       </div>
     </div>
+
     <div class="col-4 mb-3">
       <div class="card p-3">
         <p>items</p>

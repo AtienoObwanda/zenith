@@ -1,8 +1,7 @@
-# from django.db import models
+from django.db import models
 
-# class MobilePayment(models.Model):
-#     phone = models.CharField()
-#     pass
+class MobilePayment(models.Model):
+    phone_number = models.IntegerField(blank=False, null=True)
     
 # class PaypalPayment(models.Model):
 #     pass

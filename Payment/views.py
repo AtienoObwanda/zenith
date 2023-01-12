@@ -59,10 +59,10 @@ def mpesa_payment_method(request):
     if request.method == 'POST':
         form = MobileMoneyForm(request.POST)
         if form.is_valid():
-            # order = form.save(commit=False)
-            order = form.save(commit=True)
+            form.save(commit=True)
             cl = MpesaClient()
             phone_number = form.cleaned_data['phone_number']
+            print(form.cleaned_data['phone_number'])
             amount = 1
             account_reference = 'reference'
             transaction_desc = 'Description'
@@ -70,8 +70,8 @@ def mpesa_payment_method(request):
             response = cl.stk_push(phone_number, amount, account_reference, transaction_desc, callback_url)
             return HttpResponse(response)
     else:
-            form = MobileMoneyForm()
-    return render(request, 'Payment/mpesa_payment.html')
+        form = MobileMoneyForm()
+    return render(request, 'Payment/mpesa_payment.html', {'form': form})
 
 
 # Test M-Pesa config
@@ -101,3 +101,25 @@ def stk_push_success(request):
 def stk_push_callback(request):
         data = request.body
         return HttpResponse("STK Push in Django👋")
+    
+    
+    
+    
+    
+    
+    
+    
+#     @login_required
+# def addNewBooking(request, pk):
+#     if request.method == 'POST':
+#         form =  BookingForm(request.POST)
+#         if form.is_valid():
+#             booking.save()
+#             booking.user.set([request.user.client])
+#             return 
+#     else:
+#         form = BookingForm()
+
+#     return render(request, 'booking.html', {'form': form, "room": room, "user": current_user})
+
+
